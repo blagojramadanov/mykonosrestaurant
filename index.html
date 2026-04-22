@@ -1,0 +1,2030 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Restaurant Mykonos Nittenau – Authentische griechische Küche in Bayern. Reservierungen: 09436 3009333"
+    />
+    <title>Mykonos Restaurant Nittenau</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">Mykonos</div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-main">Mykonos</span>
+        <span class="brand-sub" data-i18n="brand_sub"
+          >Restaurant · Nittenau</span
+        >
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#about" class="nav-link" data-i18n="nav_about">Über uns</a>
+        </li>
+        <li>
+          <a href="#gallery" class="nav-link" data-i18n="nav_gallery"
+            >Galerie</a
+          >
+        </li>
+        <li>
+          <a href="#menu" class="nav-link" data-i18n="nav_menu">Speisekarte</a>
+        </li>
+        <li>
+          <a href="#hours" class="nav-link" data-i18n="nav_hours"
+            >Öffnungszeiten</a
+          >
+        </li>
+        <li>
+          <a href="#contact" class="nav-link" data-i18n="nav_contact"
+            >Kontakt</a
+          >
+        </li>
+        <li>
+          <a
+            href="#reservation"
+            class="nav-link nav-cta"
+            data-i18n="nav_reserve"
+            >Reservieren</a
+          >
+        </li>
+      </ul>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="de">
+          <svg
+            class="flag-icon"
+            viewBox="0 0 20 15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="20" height="5" fill="#000" />
+            <rect y="5" width="20" height="5" fill="#D00" />
+            <rect y="10" width="20" height="5" fill="#FFCE00" /></svg
+          >DE
+        </button>
+        <button class="lang-btn" data-lang="en">
+          <svg
+            class="flag-icon"
+            viewBox="0 0 20 15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="20" height="15" fill="#012169" />
+            <path d="M0,0 L20,15 M20,0 L0,15" stroke="#fff" stroke-width="3" />
+            <path
+              d="M0,0 L20,15 M20,0 L0,15"
+              stroke="#C8102E"
+              stroke-width="2"
+            />
+            <path d="M10,0 V15 M0,7.5 H20" stroke="#fff" stroke-width="5" />
+            <path
+              d="M10,0 V15 M0,7.5 H20"
+              stroke="#C8102E"
+              stroke-width="3"
+            /></svg
+          >EN
+        </button>
+        <button class="lang-btn" data-lang="el">
+          <svg
+            class="flag-icon"
+            viewBox="0 0 20 15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="20" height="15" fill="#0D5EAF" />
+            <rect y="0" width="20" height="1.67" fill="#fff" />
+            <rect y="3.33" width="20" height="1.67" fill="#fff" />
+            <rect y="6.67" width="20" height="1.67" fill="#fff" />
+            <rect y="10" width="20" height="1.67" fill="#fff" />
+            <rect y="13.33" width="20" height="1.67" fill="#fff" />
+            <rect width="8" height="8.33" fill="#0D5EAF" />
+            <path
+              d="M3.3,0 V8.33 M0,4.17 H6.7"
+              stroke="#fff"
+              stroke-width="2"
+            /></svg
+          >ΕΛ
+        </button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-overlay" id="mobileOverlay">
+      <button class="mobile-close" id="mobileClose">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path
+            d="M2 2L18 18M18 2L2 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <nav class="mobile-nav">
+        <a href="#about" class="mobile-link" data-close data-i18n="nav_about"
+          >Über uns</a
+        >
+        <a
+          href="#gallery"
+          class="mobile-link"
+          data-close
+          data-i18n="nav_gallery"
+          >Galerie</a
+        >
+        <a href="#menu" class="mobile-link" data-close data-i18n="nav_menu"
+          >Speisekarte</a
+        >
+        <a href="#hours" class="mobile-link" data-close data-i18n="nav_hours"
+          >Öffnungszeiten</a
+        >
+        <a
+          href="#reservation"
+          class="mobile-link mobile-link--cta"
+          data-close
+          data-i18n="nav_reserve"
+          >Reservieren</a
+        >
+        <a
+          href="#contact"
+          class="mobile-link"
+          data-close
+          data-i18n="nav_contact"
+          >Kontakt</a
+        >
+      </nav>
+      <div class="mobile-lang">
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="el">ΕΛ</button>
+      </div>
+      <div class="mobile-footer">
+        <p>Hauptstraße 6, 93149 Nittenau</p>
+        <p>09436 3009333</p>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-slides">
+        <div
+          class="hero-slide active"
+          style="background-image: url(&quot;images/welcome.jpg&quot;)"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url(&quot;images/trapezarione.jpg&quot;)"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
+        ></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow" data-i18n="hero_eyebrow">
+          Griechisches Restaurant seit Jahren
+        </p>
+        <h1 class="hero-title">
+          <span class="line" data-i18n="hero_line1">Authentische</span>
+          <span class="line italic" data-i18n="hero_line2">Griechische</span>
+          <span class="line" data-i18n="hero_line3">Küche</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <p class="hero-sub" data-i18n="hero_sub">
+          Erleben Sie Griechenland in Nittenau — frisch, authentisch, mit Herz
+          zubereitet.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn--gold" data-i18n="hero_btn_menu"
+            >Speisekarte</a
+          >
+          <a
+            href="#reservation"
+            class="btn btn--outline"
+            data-i18n="hero_btn_reserve"
+            >Tisch reservieren</a
+          >
+        </div>
+      </div>
+      <div class="hero-slide-dots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span data-i18n="hero_scroll">Entdecken</span>
+        <div class="scroll-line"></div>
+      </div>
+      <div class="hero-info-bar">
+        <div class="info-item">
+          <div class="info-icon-wrap">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div>
+            <strong data-i18n="info_weekdays">Mo–Sa</strong
+            ><span data-i18n="info_weekdays_time">17:00 – 22:00</span>
+          </div>
+        </div>
+        <div class="info-separator"></div>
+        <div class="info-item">
+          <div class="info-icon-wrap">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <div>
+            <strong data-i18n="info_sunday">Sonntag</strong
+            ><span data-i18n="info_sunday_time">11:30 – 22:00</span>
+          </div>
+        </div>
+        <div class="info-separator"></div>
+        <div class="info-item">
+          <div class="info-icon-wrap">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div>
+            <strong data-i18n="info_address_label">Adresse</strong
+            ><span>Hauptstraße 6, Nittenau</span>
+          </div>
+        </div>
+        <div class="info-separator"></div>
+        <div class="info-item">
+          <div class="info-icon-wrap">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+          </div>
+          <div>
+            <strong data-i18n="info_phone_label">Telefon</strong
+            ><span>09436 3009333</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <!-- Background slideshow (very subtle) -->
+      <div class="about-bg-slides" id="aboutBgSlides">
+        <div
+          class="about-bg-slide active"
+          style="background-image: url(&quot;images/nikos.jpg&quot;)"
+        ></div>
+        <div
+          class="about-bg-slide"
+          style="background-image: url(&quot;images/trapezarione.jpg&quot;)"
+        ></div>
+        <div
+          class="about-bg-slide"
+          style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
+        ></div>
+        <div
+          class="about-bg-slide"
+          style="background-image: url(&quot;images/welcome.jpg&quot;)"
+        ></div>
+      </div>
+      <div class="about-deco-text">ΜΥΚΟΝΟΣ</div>
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-mosaic" data-reveal-left>
+            <div class="mosaic-main">
+              <img src="images/welcome.jpg" alt="Unser Koch" loading="lazy" />
+              <div class="mosaic-badge">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="var(--navy)"
+                  stroke="none"
+                >
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  />
+                </svg>
+                <span class="badge-label" data-i18n="about_badge"
+                  >Seit Jahren<br />Ihr Lieblingsgrieche</span
+                >
+              </div>
+            </div>
+            <div class="mosaic-side">
+              <div class="mosaic-sm">
+                <img src="images/trapezari.jpg" alt="Gastraum" loading="lazy" />
+              </div>
+              <div class="mosaic-sm">
+                <img
+                  src="images/eingang.jpg"
+                  alt="Kaminzimmer"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="about-text" data-reveal-right>
+            <div class="section-eyebrow" data-i18n="nav_about">Über uns</div>
+            <h2 class="section-title" data-i18n="about_title">
+              Ein Stück<br /><em>Griechenland</em><br />in Bayern
+            </h2>
+            <div class="gold-rule"></div>
+            <p data-i18n="about_p1">
+              Willkommen im Restaurant Mykonos in Nittenau! Wir bringen die
+              Wärme, die Aromen und die Herzlichkeit Griechenlands direkt zu
+              Ihnen – in einem gemütlichen, familiären Ambiente mit rustikalem
+              Charme.
+            </p>
+            <p data-i18n="about_p2">
+              Unser Küchenchef bereitet täglich frische, authentische Gerichte
+              zu – vom klassischen Gyros über saftige Bifteki bis hin zu feinen
+              Fischspezialitäten. Lassen Sie sich verwöhnen!
+            </p>
+            <div class="about-pillars">
+              <div class="pillar">
+                <div class="pillar-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="pillar-text" data-i18n="pillar1">
+                  Frische Zutaten täglich
+                </div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"
+                    />
+                    <path d="M12 8v4l3 3" />
+                  </svg>
+                </div>
+                <div class="pillar-text" data-i18n="pillar2">
+                  Authentische Rezepte
+                </div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M8 22h8M12 11v11M6.5 4C5.1 4 4 5.1 4 6.5c0 3.5 3.5 5.5 8 5.5s8-2 8-5.5C20 5.1 18.9 4 17.5 4c-1 0-1.9.5-2.5 1.3-.6-.8-1.5-1.3-2.5-1.3s-1.9.5-2.5 1.3C7.4 4.5 6.5 4 6.5 4z"
+                    />
+                  </svg>
+                </div>
+                <div class="pillar-text" data-i18n="pillar3">
+                  Griechische Weine
+                </div>
+              </div>
+            </div>
+            <a href="#reservation" class="btn btn--dark" data-i18n="about_cta"
+              >Tisch reservieren</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES STRIP -->
+    <div class="features-strip">
+      <!-- Background slideshow -->
+      <div class="features-bg-slides" id="featuresBgSlides">
+        <div
+          class="features-bg-slide active"
+          style="background-image: url(&quot;images/trapezarifour.jpg&quot;)"
+        ></div>
+        <div
+          class="features-bg-slide"
+          style="background-image: url(&quot;images/nikos.jpg&quot;)"
+        ></div>
+        <div
+          class="features-bg-slide"
+          style="background-image: url(&quot;images/trapezarithree.jpg&quot;)"
+        ></div>
+      </div>
+      <div class="features-inner">
+        <div class="feature">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M3 19c3 0 7-1 9-2 2 1 6 2 9 2M3 5c3 0 7 1 9 2 2-1 6-2 9-2M3 5v14M21 5v14M12 7v10"
+            /></svg
+          ><span data-i18n="feat1">Frische Meeresfrüchte</span>
+        </div>
+        <div class="feature-dot"></div>
+        <div class="feature">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M3 11l19-9-9 19-2-8-8-2z" /></svg
+          ><span data-i18n="feat2">Griechische Salate</span>
+        </div>
+        <div class="feature-dot"></div>
+        <div class="feature">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M12 2v20M2 5l10 5 10-5M2 19l10-5 10 5" /></svg
+          ><span data-i18n="feat3">Vom Holzkohlegrill</span>
+        </div>
+        <div class="feature-dot"></div>
+        <div class="feature">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"
+            /></svg
+          ><span data-i18n="feat4">Ouzo & Metaxa</span>
+        </div>
+        <div class="feature-dot"></div>
+        <div class="feature">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path
+              d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+            /></svg
+          ><span data-i18n="feat5">Familiäre Atmosphäre</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <div class="section-eyebrow" data-i18n="nav_gallery">Galerie</div>
+          <h2 class="section-title" data-i18n="gallery_title">
+            Unser Restaurant<br /><em>in Bildern</em>
+          </h2>
+          <div class="gold-rule centered"></div>
+        </div>
+      </div>
+      <div class="gallery-masonry">
+        <div class="g-item g-item--tall" data-reveal data-num="01">
+          <img src="images/trapezarione.jpg" alt="Gastraum" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal1">Gemütlicher Gastraum</div>
+        </div>
+        <div class="g-item" data-reveal data-num="02">
+          <img src="images/welcome.jpg" alt="Spezialitäten" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal2">
+            Griechische Spezialitäten
+          </div>
+        </div>
+        <div class="g-item" data-reveal data-num="03">
+          <img src="images/trapezaritwo.jpg" alt="Kaminzimmer" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal3">Kaminzimmer</div>
+        </div>
+        <div class="g-item g-item--wide" data-reveal data-num="04">
+          <img src="images/trapezarifive.jpg" alt="Festtafel" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal4">Für besondere Anlässe</div>
+        </div>
+        <div class="g-item g-item--tall" data-reveal data-num="05">
+          <img src="images/nikos.jpg" alt="Koch" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal5">Frisch zubereitet</div>
+        </div>
+        <div class="g-item" data-reveal data-num="06">
+          <img src="images/trapezarithree.jpg" alt="Ambiente" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal6">Stimmungsvolles Ambiente</div>
+        </div>
+        <div class="g-item" data-reveal data-num="07">
+          <img src="images/trapezarifour.jpg" alt="Bar" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal7">Bar & Lounge</div>
+        </div>
+        <div class="g-item" data-reveal data-num="08">
+          <img src="images/offnung.jpg" alt="Eingang" loading="lazy" />
+          <div class="g-item-zoom">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+              <path d="M11 8v6M8 11h6" />
+            </svg>
+          </div>
+          <div class="g-caption" data-i18n="gal8">Öffnungszeiten</div>
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox">
+        <button class="lb-close" id="lbClose">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M2 2L18 18M18 2L2 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="lb-prev" id="lbPrev">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button class="lb-next" id="lbNext">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+        <div class="lb-img-wrap">
+          <img src="" alt="" id="lbImg" />
+          <p class="lb-caption" id="lbCaption"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section section" id="menu">
+      <div class="menu-bg-deco"></div>
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <div class="section-eyebrow" data-i18n="nav_menu">Speisekarte</div>
+          <h2 class="section-title" data-i18n="menu_title">
+            Unsere<br /><em>Spezialitäten</em>
+          </h2>
+          <div class="gold-rule centered"></div>
+          <p class="section-sub" data-i18n="menu_sub">
+            Täglich frisch zubereitet – vom Gyros-Teller bis zur
+            Zanderfilet-Pfanne
+          </p>
+        </div>
+        <div class="menu-tabs" role="tablist">
+          <button
+            class="mtab active"
+            data-tab="vorspeise"
+            role="tab"
+            data-i18n="tab_starter"
+          >
+            Vorspeise & Salat
+          </button>
+          <button
+            class="mtab"
+            data-tab="grill"
+            role="tab"
+            data-i18n="tab_grill"
+          >
+            Vom Grill
+          </button>
+          <button class="mtab" data-tab="mix" role="tab" data-i18n="tab_mix">
+            Mix-Teller
+          </button>
+          <button
+            class="mtab"
+            data-tab="ueber"
+            role="tab"
+            data-i18n="tab_gratin"
+          >
+            Überbacken
+          </button>
+          <button class="mtab" data-tab="fisch" role="tab" data-i18n="tab_fish">
+            Fisch
+          </button>
+          <button
+            class="mtab"
+            data-tab="kinder"
+            role="tab"
+            data-i18n="tab_kids"
+          >
+            Kinder
+          </button>
+          <button
+            class="mtab"
+            data-tab="dessert"
+            role="tab"
+            data-i18n="tab_dessert"
+          >
+            Dessert
+          </button>
+          <button
+            class="mtab"
+            data-tab="drinks"
+            role="tab"
+            data-i18n="tab_drinks"
+          >
+            Getränke
+          </button>
+        </div>
+        <div class="menu-panels">
+          <!-- STARTERS -->
+          <div class="mpanel active" id="tab-vorspeise">
+            <div class="menu-category-title" data-i18n="cat_starters">
+              Vorspeisen
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">1</span>
+                  <div>
+                    <span class="mitem-name">Tzatziki</span
+                    ><span class="mitem-desc" data-i18n="m1_desc"
+                      >Joghurt mit Knoblauch und Gurke</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">4,80 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">2</span>
+                  <div>
+                    <span class="mitem-name">Saganaki</span
+                    ><span class="mitem-desc" data-i18n="m2_desc"
+                      >Gebratener Schafskäse</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">7,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">3</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m3_name"
+                      >Peperoni vom Grill</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">5,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">4</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m4_name"
+                      >Knoblauchbrot</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">4,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">5</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m5_name"
+                      >Pita mit Knoblauch und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">3,80 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">6</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m6_name"
+                      >Pita ohne</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">2,10 €</span>
+              </div>
+            </div>
+            <div
+              class="menu-category-title"
+              style="margin-top: 2rem"
+              data-i18n="cat_salads"
+            >
+              Salate
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">30</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m30_name"
+                      >Kleiner Bauernsalat</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">7,40 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">31</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m31_name"
+                      >Kleiner Thunfischsalat</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">7,40 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">32</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m32_name"
+                      >Kleiner gemischter Salat</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">5,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">33</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m33_name"
+                      >Großer Bauernsalat</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">12,60 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">34</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m34_name"
+                      >Großer Thunfischsalat</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">12,60 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">35</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m35_name"
+                      >Großer gemischter Salat</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">11,80 €</span>
+              </div>
+            </div>
+            <div
+              class="menu-category-title"
+              style="margin-top: 2rem"
+              data-i18n="cat_sides"
+            >
+              Beilagen
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">20</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m20_name">Pommes</span>
+                  </div>
+                </div>
+                <span class="mitem-price">3,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">21</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m21_name">Reis</span>
+                  </div>
+                </div>
+                <span class="mitem-price">3,00 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">22</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m22_name"
+                      >Kroketten</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">3,50 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- GRILL -->
+          <div class="mpanel" id="tab-grill">
+            <div class="menu-category-title" data-i18n="tab_grill">
+              Vom Grill
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">50</span>
+                  <div>
+                    <span class="mitem-name">Gyros-Teller</span
+                    ><span class="mitem-desc" data-i18n="grill_side"
+                      >mit Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">14,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">51</span>
+                  <div>
+                    <span class="mitem-name">Souvlaki-Teller</span
+                    ><span class="mitem-desc" data-i18n="grill_side"
+                      >mit Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">14,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">52</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m52_name"
+                      >Schweinesteak-Teller</span
+                    ><span class="mitem-desc" data-i18n="m52_desc"
+                      >mit Pommes, Reis und Kräutercreme</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">14,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">53</span>
+                  <div>
+                    <span class="mitem-name">Soutzoukaki</span
+                    ><span class="mitem-desc" data-i18n="m53_desc"
+                      >Hackfleischröllchen – mit Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">14,50 €</span>
+              </div>
+              <div class="mitem mitem--featured">
+                <div class="mitem-info">
+                  <span class="mitem-num">54</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m54_name"
+                      >Bifteki ★</span
+                    ><span class="mitem-desc" data-i18n="m54_desc"
+                      >Hackfleischsteak gefüllt mit Schafskäse, Pommes, Reis und
+                      Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,70 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">55</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m55_name"
+                      >Hähnchenbrustfilet</span
+                    ><span class="mitem-desc" data-i18n="grill_side"
+                      >mit Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,70 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- MIX -->
+          <div class="mpanel" id="tab-mix">
+            <div class="menu-category-title" data-i18n="tab_mix">
+              Mix-Teller
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">56</span>
+                  <div>
+                    <span class="mitem-name">Rodos-Teller</span
+                    ><span class="mitem-desc" data-i18n="m56_desc"
+                      >Gyros, Souvlaki, Zwiebeln – Pommes, Reis und
+                      Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">15,40 €</span>
+              </div>
+              <div class="mitem mitem--featured">
+                <div class="mitem-info">
+                  <span class="mitem-num">57</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m57_name"
+                      >Grill-Teller ★</span
+                    ><span class="mitem-desc" data-i18n="m57_desc"
+                      >Gyros, Soutzoukaki, Steak, Souvlaki – Pommes, Reis und
+                      Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">17,60 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">58</span>
+                  <div>
+                    <span class="mitem-name">Paros-Teller</span
+                    ><span class="mitem-desc" data-i18n="m58_desc"
+                      >Gyros, Kalamari, Zwiebeln – Pommes, Reis und
+                      Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,40 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">59</span>
+                  <div>
+                    <span class="mitem-name">Kreta-Teller</span
+                    ><span class="mitem-desc" data-i18n="m59_desc"
+                      >Gyros, Soutzoukaki, Hähnchenbrustfilet, Souvlaki –
+                      Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">18,40 €</span>
+              </div>
+              <div class="mitem mitem--featured">
+                <div class="mitem-info">
+                  <span class="mitem-num">60</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m60_name"
+                      >Mykonos-Teller ★</span
+                    ><span class="mitem-desc" data-i18n="m60_desc"
+                      >Gyros, Kalamari, Steak, Souvlaki, Zwiebeln – Pommes, Reis
+                      und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">19,80 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- GRATIN -->
+          <div class="mpanel" id="tab-ueber">
+            <div class="menu-category-title" data-i18n="tab_gratin">
+              Überbacken
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">80</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m80_name"
+                      >Gyros überbacken</span
+                    ><span class="mitem-desc" data-i18n="m80_desc"
+                      >mit Metaxasauce, Käse und Pommes</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">81</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m81_name"
+                      >Hähnchenbrustfilet überbacken</span
+                    ><span class="mitem-desc" data-i18n="m80_desc"
+                      >mit Metaxasauce, Käse und Pommes</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">17,60 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">82</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m82_name"
+                      >Steak überbacken</span
+                    ><span class="mitem-desc" data-i18n="m80_desc"
+                      >mit Metaxasauce, Käse und Pommes</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">83</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m83_name"
+                      >Hackfleischröllchen überbacken</span
+                    ><span class="mitem-desc" data-i18n="m80_desc"
+                      >mit Metaxasauce, Käse und Pommes</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">84</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m84_name"
+                      >Hackfleischsteak gefüllt überbacken</span
+                    ><span class="mitem-desc" data-i18n="m84_desc"
+                      >mit Schafskäse, Metaxasauce, Käse und Pommes</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">16,90 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- FISH -->
+          <div class="mpanel" id="tab-fisch">
+            <div class="menu-category-title" data-i18n="cat_fish">
+              Fischgerichte
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">90</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m90_name"
+                      >Kalamari frittiert</span
+                    ><span class="mitem-desc" data-i18n="grill_side"
+                      >mit Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">17,90 €</span>
+              </div>
+              <div class="mitem mitem--featured">
+                <div class="mitem-info">
+                  <span class="mitem-num">91</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m91_name"
+                      >Zanderfilet ★</span
+                    ><span class="mitem-desc" data-i18n="grill_side"
+                      >mit Pommes, Reis und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">19,90 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- KIDS -->
+          <div class="mpanel" id="tab-kinder">
+            <div class="menu-category-title" data-i18n="cat_kids">
+              Kinder-Teller
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">100</span>
+                  <div>
+                    <span class="mitem-name">Gyros</span
+                    ><span class="mitem-desc" data-i18n="kids_side"
+                      >mit Pommes und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">11,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">101</span>
+                  <div>
+                    <span class="mitem-name">Souvlaki</span
+                    ><span class="mitem-desc" data-i18n="kids_side"
+                      >mit Pommes und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">11,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">102</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m55_name"
+                      >Hähnchenbrustfilet</span
+                    ><span class="mitem-desc" data-i18n="kids_side"
+                      >mit Pommes und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">11,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">103</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m103_name"
+                      >Chicken Nuggets</span
+                    ><span class="mitem-desc" data-i18n="kids_side"
+                      >mit Pommes und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">11,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">104</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m104_name"
+                      >Fischstäbchen</span
+                    ><span class="mitem-desc" data-i18n="kids_side"
+                      >mit Pommes und Tzatziki</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">11,90 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- DESSERT -->
+          <div class="mpanel" id="tab-dessert">
+            <div class="menu-category-title" data-i18n="cat_coffee">Kaffee</div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">400</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m400_name"
+                      >Kaffee Crema</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">2,80 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">401</span>
+                  <div><span class="mitem-name">Espresso</span></div>
+                </div>
+                <span class="mitem-price">2,50 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">402</span>
+                  <div><span class="mitem-name">Cappuccino</span></div>
+                </div>
+                <span class="mitem-price">3,50 €</span>
+              </div>
+            </div>
+            <div
+              class="menu-category-title"
+              style="margin-top: 2rem"
+              data-i18n="tab_dessert"
+            >
+              Dessert
+            </div>
+            <div class="menu-list">
+              <div class="mitem mitem--featured">
+                <div class="mitem-info">
+                  <span class="mitem-num">500</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m500_name"
+                      >Joghurt mit Honig und Walnüssen ★</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">6,90 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">501</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m501_name"
+                      >Schokoladenmousse</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">6,00 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">502</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m502_name"
+                      >Gemischtes Eis mit Sahne</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">6,90 €</span>
+              </div>
+            </div>
+          </div>
+          <!-- DRINKS -->
+          <div class="mpanel" id="tab-drinks">
+            <div class="menu-category-title" data-i18n="cat_beer">Bier</div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">200</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m200_name">Helles</span
+                    ><span class="mitem-desc">0,5 l · 5,0%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">4,20 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">201</span>
+                  <div>
+                    <span class="mitem-name">Pils</span
+                    ><span class="mitem-desc">0,3 l · 4,9%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">3,10 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">202</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m202_name"
+                      >Bier alkoholfrei</span
+                    ><span class="mitem-desc">0,5 l</span>
+                  </div>
+                </div>
+                <span class="mitem-price">4,20 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">205</span>
+                  <div>
+                    <span class="mitem-name">Weizen</span
+                    ><span class="mitem-desc">0,5 l · 5,3%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">4,20 €</span>
+              </div>
+            </div>
+            <div
+              class="menu-category-title"
+              style="margin-top: 2rem"
+              data-i18n="cat_wine"
+            >
+              Wein
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">300</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m300_name"
+                      >Weißwein trocken</span
+                    ><span class="mitem-desc">0,2 l · 12,0%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">5,30 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">304</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m304_name"
+                      >Roséwein trocken</span
+                    ><span class="mitem-desc">0,2 l · 11,5%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">5,30 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">306</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m306_name"
+                      >Rotwein trocken</span
+                    ><span class="mitem-desc">0,2 l · 12,5%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">5,30 €</span>
+              </div>
+              <div class="mitem mitem--featured">
+                <div class="mitem-info">
+                  <span class="mitem-num">310</span>
+                  <div>
+                    <span class="mitem-name">Retsina ★</span
+                    ><span class="mitem-desc" data-i18n="m310_desc"
+                      >0,2 l · griechischer Harzwein</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">4,80 €</span>
+              </div>
+            </div>
+            <div
+              class="menu-category-title"
+              style="margin-top: 2rem"
+              data-i18n="cat_spirits"
+            >
+              Aperitif & Spirituosen
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">250</span>
+                  <div>
+                    <span class="mitem-name">Ouzo</span
+                    ><span class="mitem-desc">0,4 cl · 37,5%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">4,30 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">252</span>
+                  <div>
+                    <span class="mitem-name">Metaxa</span
+                    ><span class="mitem-desc">0,4 cl · 38,0%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">4,30 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">251</span>
+                  <div>
+                    <span class="mitem-name">Ramazotti</span
+                    ><span class="mitem-desc">0,4 cl · 30,0%</span>
+                  </div>
+                </div>
+                <span class="mitem-price">4,30 €</span>
+              </div>
+            </div>
+            <div
+              class="menu-category-title"
+              style="margin-top: 2rem"
+              data-i18n="cat_soft"
+            >
+              Alkoholfrei
+            </div>
+            <div class="menu-list">
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">150</span>
+                  <div><span class="mitem-name">Cola 0,3 l / 0,5 l</span></div>
+                </div>
+                <span class="mitem-price">3,10 / 4,80 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">162</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m162_name"
+                      >Wasser Sprudel 0,3 l / 0,5 l</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">2,90 / 4,80 €</span>
+              </div>
+              <div class="mitem">
+                <div class="mitem-info">
+                  <span class="mitem-num">167</span>
+                  <div>
+                    <span class="mitem-name" data-i18n="m167_name"
+                      >Orangensaft 0,3 l / 0,5 l</span
+                    >
+                  </div>
+                </div>
+                <span class="mitem-price">2,50 / 4,20 €</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS -->
+    <section class="hours-section section" id="hours">
+      <!-- Food photo slideshow background -->
+      <div class="hours-food-slides" id="hoursFoodSlides">
+        <div
+          class="hours-food-slide active"
+          style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
+        ></div>
+        <div
+          class="hours-food-slide"
+          style="background-image: url(&quot;images/welcome.jpg&quot;)"
+        ></div>
+        <div
+          class="hours-food-slide"
+          style="background-image: url(&quot;images/nikos.jpg&quot;)"
+        ></div>
+        <div
+          class="hours-food-slide"
+          style="background-image: url(&quot;images/trapezarione.jpg&quot;)"
+        ></div>
+      </div>
+      <div class="hours-parallax-img"></div>
+      <div class="hours-overlay"></div>
+      <div class="container">
+        <div class="hours-inner" data-reveal>
+          <div class="section-eyebrow light" data-i18n="nav_hours">
+            Öffnungszeiten
+          </div>
+          <h2 class="section-title light" data-i18n="hours_title">
+            Wann wir<br /><em>für Sie da sind</em>
+          </h2>
+          <div class="gold-rule centered"></div>
+          <div class="hours-table">
+            <div class="hrow">
+              <span class="hday" data-i18n="day_mon">Montag</span
+              ><span class="htime">17:00 – 22:00</span>
+            </div>
+            <div class="hrow closed">
+              <span class="hday" data-i18n="day_tue">Dienstag</span
+              ><span class="htime hclosed" data-i18n="closed">Ruhetag</span>
+            </div>
+            <div class="hrow">
+              <span class="hday" data-i18n="day_wed">Mittwoch</span
+              ><span class="htime">17:00 – 22:00</span>
+            </div>
+            <div class="hrow">
+              <span class="hday" data-i18n="day_thu">Donnerstag</span
+              ><span class="htime">17:00 – 22:00</span>
+            </div>
+            <div class="hrow">
+              <span class="hday" data-i18n="day_fri">Freitag</span
+              ><span class="htime">17:00 – 22:00</span>
+            </div>
+            <div class="hrow">
+              <span class="hday" data-i18n="day_sat">Samstag</span
+              ><span class="htime">17:00 – 22:00</span>
+            </div>
+            <div class="hrow hrow--special">
+              <span class="hday" data-i18n="day_sun">Sonntag & Feiertag</span
+              ><span class="htime">11:30–14:00 &amp; 17:00–22:00</span>
+            </div>
+          </div>
+          <p class="hours-note" data-i18n="hours_note">
+            Jeden Sonntag & Feiertag gleiche Öffnungszeiten
+          </p>
+          <a
+            href="tel:094363009333"
+            class="btn btn--gold"
+            style="margin-top: 2rem"
+            >09436 3009333</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVATION -->
+    <section class="reservation section" id="reservation">
+      <!-- Subtle bg slideshow -->
+      <div class="res-bg-slides" id="resBgSlides">
+        <div
+          class="res-bg-slide active"
+          style="background-image: url(&quot;images/trapezarithree.jpg&quot;)"
+        ></div>
+        <div
+          class="res-bg-slide"
+          style="background-image: url(&quot;images/trapezarifour.jpg&quot;)"
+        ></div>
+        <div
+          class="res-bg-slide"
+          style="background-image: url(&quot;images/trapezaritwo.jpg&quot;)"
+        ></div>
+      </div>
+      <div class="container">
+        <div class="reservation-grid">
+          <div class="res-left" data-reveal-left>
+            <div class="section-eyebrow" data-i18n="res_eyebrow">
+              Reservierung
+            </div>
+            <h2 class="section-title" data-i18n="res_title">
+              Tisch<br /><em>reservieren</em>
+            </h2>
+            <div class="gold-rule"></div>
+            <p data-i18n="res_desc">
+              Reservieren Sie Ihren Tisch direkt über das Formular oder rufen
+              Sie uns an.
+            </p>
+            <div class="res-contact">
+              <a href="tel:094363009333" class="res-contact-item">
+                <span class="res-icon"
+                  ><svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                    /></svg
+                ></span>
+                <div>
+                  <strong data-i18n="info_phone_label">Telefon</strong
+                  ><span>09436 3009333</span>
+                </div>
+              </a>
+              <a
+                href="mailto:mykonosrestaurant73@gmail.com"
+                class="res-contact-item"
+              >
+                <span class="res-icon"
+                  ><svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" /></svg
+                ></span>
+                <div>
+                  <strong>E-Mail</strong
+                  ><span>mykonosrestaurant73@gmail.com</span>
+                </div>
+              </a>
+            </div>
+            <img
+              src="images/trapezarithree.jpg"
+              alt="Gastraum"
+              class="res-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="res-right" data-reveal-right>
+            <form class="res-form" id="resForm" novalidate>
+              <div class="res-form-grid">
+                <div class="fgroup">
+                  <label data-i18n="form_name">Ihr Name *</label
+                  ><input
+                    type="text"
+                    name="name"
+                    placeholder="Max Mustermann"
+                    required
+                  />
+                </div>
+                <div class="fgroup">
+                  <label data-i18n="form_phone">Telefon *</label
+                  ><input
+                    type="tel"
+                    name="phone"
+                    placeholder="+49 …"
+                    required
+                  />
+                </div>
+                <div class="fgroup">
+                  <label data-i18n="form_date">Datum *</label
+                  ><input type="date" name="date" id="resDate" required />
+                </div>
+                <div class="fgroup">
+                  <label data-i18n="form_time">Uhrzeit *</label
+                  ><input
+                    type="time"
+                    name="time"
+                    min="11:30"
+                    max="21:30"
+                    required
+                  />
+                </div>
+                <div class="fgroup">
+                  <label data-i18n="form_guests">Personen</label
+                  ><select name="guests">
+                    <option data-i18n="guests_1">1 Person</option>
+                    <option selected data-i18n="guests_2">2 Personen</option>
+                    <option data-i18n="guests_3">3 Personen</option>
+                    <option data-i18n="guests_4">4 Personen</option>
+                    <option data-i18n="guests_5">5 Personen</option>
+                    <option data-i18n="guests_6">6 Personen</option>
+                    <option data-i18n="guests_7">7+ Personen</option>
+                  </select>
+                </div>
+                <div class="fgroup">
+                  <label>E-Mail</label
+                  ><input
+                    type="email"
+                    name="email"
+                    placeholder="ihre@email.de"
+                  />
+                </div>
+                <div class="fgroup fgroup--full">
+                  <label data-i18n="form_notes">Anmerkungen</label
+                  ><textarea
+                    name="notes"
+                    rows="4"
+                    data-i18n-placeholder="form_notes_placeholder"
+                  ></textarea>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn--dark btn--full"
+                data-i18n="form_submit"
+              >
+                Reservierung anfragen →
+              </button>
+              <p class="res-note" data-i18n="form_note">
+                Wir bestätigen Ihre Reservierung telefonisch oder per E-Mail.
+              </p>
+            </form>
+            <div class="res-success" id="resSuccess">
+              <div class="res-success-icon">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--gold)"
+                  stroke-width="1.5"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h3 data-i18n="success_title">Vielen Dank!</h3>
+              <p data-i18n="success_msg">
+                Ihre Anfrage ist eingegangen. Wir melden uns bald bei Ihnen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <div class="section-eyebrow" data-i18n="contact_eyebrow">
+            Kontakt & Anfahrt
+          </div>
+          <h2 class="section-title" data-i18n="contact_title">
+            So finden Sie<br /><em>uns</em>
+          </h2>
+          <div class="gold-rule centered"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-cards" data-reveal-left>
+            <a
+              href="https://maps.google.com/?q=Hauptstrasse+6+Nittenau"
+              target="_blank"
+              class="ccard"
+            >
+              <div class="ccard-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="ccard-label" data-i18n="info_address_label">
+                Adresse
+              </div>
+              <div class="ccard-value">Hauptstraße 6<br />93149 Nittenau</div>
+            </a>
+            <a href="tel:094363009333" class="ccard">
+              <div class="ccard-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </div>
+              <div class="ccard-label" data-i18n="info_phone_label">
+                Telefon
+              </div>
+              <div class="ccard-value">09436 3009333</div>
+            </a>
+            <a href="mailto:mykonosrestaurant73@gmail.com" class="ccard">
+              <div class="ccard-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="ccard-label">E-Mail</div>
+              <div class="ccard-value">mykonosrestaurant73<br />@gmail.com</div>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61575455390281"
+              target="_blank"
+              class="ccard"
+            >
+              <div class="ccard-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </div>
+              <div class="ccard-label">Facebook</div>
+              <div class="ccard-value">mykonos restaurant</div>
+            </a>
+          </div>
+          <div class="contact-map" data-reveal-right>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2614.0!2d12.265!3d49.1988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a01b3f2c9ef:0x0!2zNDnCsDExJzU2LjkiTiAxMsKwMTUnNTQuMCJF!5e0!3m2!1sde!2sde!4v1"
+              allowfullscreen
+              loading="lazy"
+              title="Mykonos Restaurant "
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Mykonos</div>
+          <div class="footer-tagline" data-i18n="footer_tagline">
+            Griechisches Restaurant · Nittenau
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <a href="#about" data-i18n="nav_about">Über uns</a>
+          <a href="#gallery" data-i18n="nav_gallery">Galerie</a>
+          <a href="#menu" data-i18n="nav_menu">Speisekarte</a>
+          <a href="#hours" data-i18n="nav_hours">Öffnungszeiten</a>
+          <a href="#reservation" data-i18n="nav_reserve">Reservieren</a>
+          <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+          <a href="impressum.html" data-i18n="nav_impressum">Impressum</a>
+          <a href="datenschutz.html" data-i18n="nav_datenschutz">Datenschutz</a>
+        </nav>
+        <div class="footer-contact">
+          <p>Hauptstraße 6, 93149 Nittenau</p>
+          <p><a href="tel:094363009333">09436 3009333</a></p>
+          <p>
+            <a href="mailto:mykonosrestaurant73@gmail.com"
+              >mykonosrestaurant73@gmail.com</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">
+          © 2025 Restaurant Mykonos Nittenau — Alle Rechte vorbehalten
+        </p>
+        <div class="footer-legal-links">
+          <a href="impressum.html" data-i18n="nav_impressum">Impressum</a>
+          <span>·</span>
+          <a href="datenschutz.html" data-i18n="nav_datenschutz">Datenschutz</a>
+          <span>·</span>
+          <span data-i18n="footer_closed">Dienstag Ruhetag</span>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-top" id="backTop" aria-label="Nach oben">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+
+    <script src="index.js"></script>
+  </body>
+</html>
