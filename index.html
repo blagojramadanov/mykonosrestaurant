@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Restaurant Mykonos Nittenau – Authentische griechische Küche in Bayern. Reservierungen: 09436 3009333"
@@ -17,7 +17,12 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="loader" id="loader">
+    <div
+      class="loader"
+      id="loader"
+      role="status"
+      aria-label="Seite wird geladen"
+    >
       <div class="loader-inner">
         <div class="loader-logo">Mykonos</div>
         <div class="loader-bar"><div class="loader-fill"></div></div>
@@ -311,8 +316,8 @@
             </svg>
           </div>
           <div>
-            <strong data-i18n="info_weekdays">Mo–Sa</strong
-            ><span data-i18n="info_weekdays_time">17:00 – 22:00</span>
+            <strong data-i18n="info_weekdays">Mo–Sa</strong>
+            <span data-i18n="info_weekdays_time">17:00 – 22:00</span>
           </div>
         </div>
         <div class="info-separator" aria-hidden="true"></div>
@@ -331,8 +336,8 @@
             </svg>
           </div>
           <div>
-            <strong data-i18n="info_sunday">Sonntag</strong
-            ><span data-i18n="info_sunday_time">11:30 – 22:00</span>
+            <strong data-i18n="info_sunday">Sonntag</strong>
+            <span data-i18n="info_sunday_time">11:30 – 22:00</span>
           </div>
         </div>
         <div class="info-separator" aria-hidden="true"></div>
@@ -351,8 +356,8 @@
             </svg>
           </div>
           <div>
-            <strong data-i18n="info_address_label">Adresse</strong
-            ><span>Hauptstraße 6, Nittenau</span>
+            <strong data-i18n="info_address_label">Adresse</strong>
+            <span>Hauptstraße 6, Nittenau</span>
           </div>
         </div>
         <div class="info-separator" aria-hidden="true"></div>
@@ -372,8 +377,8 @@
             </svg>
           </div>
           <div>
-            <strong data-i18n="info_phone_label">Telefon</strong
-            ><span>09436 3009333</span>
+            <strong data-i18n="info_phone_label">Telefon</strong>
+            <span>09436 3009333</span>
           </div>
         </div>
       </div>
@@ -526,8 +531,9 @@
           >
             <path
               d="M3 19c3 0 7-1 9-2 2 1 6 2 9 2M3 5c3 0 7 1 9 2 2-1 6-2 9-2M3 5v14M21 5v14M12 7v10"
-            /></svg
-          ><span data-i18n="feat1">Frische Meeresfrüchte</span>
+            />
+          </svg>
+          <span data-i18n="feat1">Frische Meeresfrüchte</span>
         </div>
         <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
@@ -540,8 +546,9 @@
             stroke-width="1.5"
             aria-hidden="true"
           >
-            <path d="M3 11l19-9-9 19-2-8-8-2z" /></svg
-          ><span data-i18n="feat2">Griechische Salate</span>
+            <path d="M3 11l19-9-9 19-2-8-8-2z" />
+          </svg>
+          <span data-i18n="feat2">Griechische Salate</span>
         </div>
         <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
@@ -554,8 +561,9 @@
             stroke-width="1.5"
             aria-hidden="true"
           >
-            <path d="M12 2v20M2 5l10 5 10-5M2 19l10-5 10 5" /></svg
-          ><span data-i18n="feat3">Vom Holzkohlegrill</span>
+            <path d="M12 2v20M2 5l10 5 10-5M2 19l10-5 10 5" />
+          </svg>
+          <span data-i18n="feat3">Vom Holzkohlegrill</span>
         </div>
         <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
@@ -570,8 +578,9 @@
           >
             <path
               d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"
-            /></svg
-          ><span data-i18n="feat4">Ouzo &amp; Metaxa</span>
+            />
+          </svg>
+          <span data-i18n="feat4">Ouzo &amp; Metaxa</span>
         </div>
         <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
@@ -586,10 +595,9 @@
           >
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
-            <path
-              d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
-            /></svg
-          ><span data-i18n="feat5">Familiäre Atmosphäre</span>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <span data-i18n="feat5">Familiäre Atmosphäre</span>
         </div>
       </div>
     </div>
@@ -623,8 +631,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal1">Gemütlicher Gastraum</div>
@@ -647,8 +654,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal2">
@@ -673,8 +679,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal3">Kaminzimmer</div>
@@ -682,7 +687,7 @@
         <div class="g-item g-item--wide" data-reveal role="listitem">
           <img
             src="images/trapezarifive.jpg"
-            alt="Für besondere Anlässe gedeckter Tisch"
+            alt="Für besondere Anlässe"
             loading="lazy"
             width="800"
             height="400"
@@ -697,8 +702,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal4">Für besondere Anlässe</div>
@@ -721,8 +725,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal5">Frisch zubereitet</div>
@@ -745,8 +748,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal6">Stimmungsvolles Ambiente</div>
@@ -769,8 +771,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal7">Bar &amp; Lounge</div>
@@ -793,8 +794,7 @@
               stroke-width="1.5"
             >
               <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-              <path d="M11 8v6M8 11h6" />
+              <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
             </svg>
           </div>
           <div class="g-caption" data-i18n="gal8">Öffnungszeiten</div>
@@ -863,6 +863,7 @@
             Zanderfilet-Pfanne
           </p>
         </div>
+
         <div
           class="menu-tabs"
           role="tablist"
@@ -949,6 +950,7 @@
             Getränke
           </button>
         </div>
+
         <div class="menu-panels">
           <div class="mpanel active" id="tab-vorspeise" role="tabpanel">
             <div class="menu-category-title" data-i18n="cat_starters">
@@ -1138,6 +1140,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-grill" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="tab_grill">
               Vom Grill
@@ -1221,6 +1224,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-mix" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="tab_mix">
               Mix-Teller
@@ -1295,6 +1299,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-ueber" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="tab_gratin">
               Überbacken
@@ -1367,6 +1372,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-fisch" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_fish">
               Fischgerichte
@@ -1400,6 +1406,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-kinder" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_kids">
               Kinder-Teller
@@ -1470,6 +1477,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-dessert" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_coffee">Kaffee</div>
             <div class="menu-list">
@@ -1542,6 +1550,7 @@
               </div>
             </div>
           </div>
+
           <div class="mpanel" id="tab-drinks" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_beer">Bier</div>
             <div class="menu-list">
@@ -1741,31 +1750,32 @@
           <div class="gold-rule centered"></div>
           <div class="hours-table" role="table" aria-label="Öffnungszeiten">
             <div class="hrow" role="row">
-              <span class="hday" role="cell" data-i18n="day_mon">Montag</span
-              ><span class="htime" role="cell">17:00 – 22:00</span>
+              <span class="hday" role="cell" data-i18n="day_mon">Montag</span>
+              <span class="htime" role="cell">17:00 – 22:00</span>
             </div>
             <div class="hrow closed" role="row">
-              <span class="hday" role="cell" data-i18n="day_tue">Dienstag</span
-              ><span class="htime hclosed" role="cell" data-i18n="closed"
+              <span class="hday" role="cell" data-i18n="day_tue">Dienstag</span>
+              <span class="htime hclosed" role="cell" data-i18n="closed"
                 >Ruhetag</span
               >
             </div>
             <div class="hrow" role="row">
-              <span class="hday" role="cell" data-i18n="day_wed">Mittwoch</span
-              ><span class="htime" role="cell">17:00 – 22:00</span>
+              <span class="hday" role="cell" data-i18n="day_wed">Mittwoch</span>
+              <span class="htime" role="cell">17:00 – 22:00</span>
             </div>
             <div class="hrow" role="row">
               <span class="hday" role="cell" data-i18n="day_thu"
                 >Donnerstag</span
-              ><span class="htime" role="cell">17:00 – 22:00</span>
+              >
+              <span class="htime" role="cell">17:00 – 22:00</span>
             </div>
             <div class="hrow" role="row">
-              <span class="hday" role="cell" data-i18n="day_fri">Freitag</span
-              ><span class="htime" role="cell">17:00 – 22:00</span>
+              <span class="hday" role="cell" data-i18n="day_fri">Freitag</span>
+              <span class="htime" role="cell">17:00 – 22:00</span>
             </div>
             <div class="hrow" role="row">
-              <span class="hday" role="cell" data-i18n="day_sat">Samstag</span
-              ><span class="htime" role="cell">17:00 – 22:00</span>
+              <span class="hday" role="cell" data-i18n="day_sat">Samstag</span>
+              <span class="htime" role="cell">17:00 – 22:00</span>
             </div>
             <div class="hrow hrow--special" role="row">
               <span class="hday" role="cell" data-i18n="day_sun"
@@ -1805,8 +1815,8 @@
             </p>
             <div class="res-contact">
               <a href="tel:094363009333" class="res-contact-item">
-                <span class="res-icon" aria-hidden="true"
-                  ><svg
+                <span class="res-icon" aria-hidden="true">
+                  <svg
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -1816,19 +1826,20 @@
                   >
                     <path
                       d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                    /></svg
-                ></span>
+                    />
+                  </svg>
+                </span>
                 <div>
-                  <strong data-i18n="info_phone_label">Telefon</strong
-                  ><span>09436 3009333</span>
+                  <strong data-i18n="info_phone_label">Telefon</strong>
+                  <span>09436 3009333</span>
                 </div>
               </a>
               <a
                 href="mailto:mykonosrestaurant73@gmail.com"
                 class="res-contact-item"
               >
-                <span class="res-icon" aria-hidden="true"
-                  ><svg
+                <span class="res-icon" aria-hidden="true">
+                  <svg
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -1839,11 +1850,12 @@
                     <path
                       d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
                     />
-                    <polyline points="22,6 12,13 2,6" /></svg
-                ></span>
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </span>
                 <div>
-                  <strong>E-Mail</strong
-                  ><span>mykonosrestaurant73@gmail.com</span>
+                  <strong>E-Mail</strong>
+                  <span>mykonosrestaurant73@gmail.com</span>
                 </div>
               </a>
             </div>
@@ -1856,6 +1868,7 @@
               height="338"
             />
           </div>
+
           <div class="res-right" data-reveal-right>
             <form class="res-form" id="resForm" novalidate>
               <div class="res-form-grid">
@@ -1883,7 +1896,7 @@
                 </div>
                 <div class="fgroup">
                   <label for="resDate" data-i18n="form_date">Datum *</label>
-                  <input type="date" name="date" id="resDate" required />
+                  <input type="date" id="resDate" name="date" required />
                 </div>
                 <div class="fgroup">
                   <label for="resTime" data-i18n="form_time">Uhrzeit *</label>
