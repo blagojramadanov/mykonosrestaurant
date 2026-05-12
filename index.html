@@ -2,11 +2,12 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta
       name="description"
       content="Restaurant Mykonos Nittenau – Authentische griechische Küche in Bayern. Reservierungen: 09436 3009333"
     />
+    <meta name="theme-color" content="#0b1a2e" />
     <title>Mykonos Restaurant Nittenau</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -16,7 +17,6 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- LOADER -->
     <div class="loader" id="loader">
       <div class="loader-inner">
         <div class="loader-logo">Mykonos</div>
@@ -24,15 +24,23 @@
       </div>
     </div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-      <a href="#hero" class="nav-brand">
+    <nav
+      class="navbar"
+      id="navbar"
+      role="navigation"
+      aria-label="Hauptnavigation"
+    >
+      <a
+        href="#hero"
+        class="nav-brand"
+        aria-label="Mykonos Restaurant Startseite"
+      >
         <span class="brand-main">Mykonos</span>
         <span class="brand-sub" data-i18n="brand_sub"
           >Restaurant · Nittenau</span
         >
       </a>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links" id="navLinks" role="list">
         <li>
           <a href="#about" class="nav-link" data-i18n="nav_about">Über uns</a>
         </li>
@@ -63,24 +71,31 @@
           >
         </li>
       </ul>
-      <div class="lang-switcher" id="langSwitcher">
-        <button class="lang-btn active" data-lang="de">
-          <svg
-            class="flag-icon"
-            viewBox="0 0 20 15"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+      <div
+        class="lang-switcher"
+        id="langSwitcher"
+        role="group"
+        aria-label="Sprache wählen"
+      >
+        <button
+          class="lang-btn active"
+          data-lang="de"
+          aria-pressed="true"
+          aria-label="Deutsch"
+        >
+          <svg class="flag-icon" viewBox="0 0 20 15" aria-hidden="true">
             <rect width="20" height="5" fill="#000" />
             <rect y="5" width="20" height="5" fill="#D00" />
             <rect y="10" width="20" height="5" fill="#FFCE00" /></svg
           >DE
         </button>
-        <button class="lang-btn" data-lang="en">
-          <svg
-            class="flag-icon"
-            viewBox="0 0 20 15"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        <button
+          class="lang-btn"
+          data-lang="en"
+          aria-pressed="false"
+          aria-label="English"
+        >
+          <svg class="flag-icon" viewBox="0 0 20 15" aria-hidden="true">
             <rect width="20" height="15" fill="#012169" />
             <path d="M0,0 L20,15 M20,0 L0,15" stroke="#fff" stroke-width="3" />
             <path
@@ -96,12 +111,13 @@
             /></svg
           >EN
         </button>
-        <button class="lang-btn" data-lang="el">
-          <svg
-            class="flag-icon"
-            viewBox="0 0 20 15"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        <button
+          class="lang-btn"
+          data-lang="el"
+          aria-pressed="false"
+          aria-label="Ελληνικά"
+        >
+          <svg class="flag-icon" viewBox="0 0 20 15" aria-hidden="true">
             <rect width="20" height="15" fill="#0D5EAF" />
             <rect y="0" width="20" height="1.67" fill="#fff" />
             <rect y="3.33" width="20" height="1.67" fill="#fff" />
@@ -117,69 +133,101 @@
           >ΕΛ
         </button>
       </div>
-      <button class="burger" id="burger" aria-label="Menü">
-        <span></span><span></span><span></span>
+      <button
+        class="burger"
+        id="burger"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="mobileOverlay"
+      >
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
       </button>
     </nav>
 
-    <!-- MOBILE MENU -->
-    <div class="mobile-overlay" id="mobileOverlay">
-      <button class="mobile-close" id="mobileClose">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path
-            d="M2 2L18 18M18 2L2 18"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-        </svg>
-      </button>
-      <nav class="mobile-nav">
-        <a href="#about" class="mobile-link" data-close data-i18n="nav_about"
-          >Über uns</a
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobilnavigation"
+    >
+      <div class="mobile-overlay-bg"></div>
+      <div class="mobile-overlay-content">
+        <button
+          class="mobile-close"
+          id="mobileClose"
+          aria-label="Menü schließen"
         >
-        <a
-          href="#gallery"
-          class="mobile-link"
-          data-close
-          data-i18n="nav_gallery"
-          >Galerie</a
-        >
-        <a href="#menu" class="mobile-link" data-close data-i18n="nav_menu"
-          >Speisekarte</a
-        >
-        <a href="#hours" class="mobile-link" data-close data-i18n="nav_hours"
-          >Öffnungszeiten</a
-        >
-        <a
-          href="#reservation"
-          class="mobile-link mobile-link--cta"
-          data-close
-          data-i18n="nav_reserve"
-          >Reservieren</a
-        >
-        <a
-          href="#contact"
-          class="mobile-link"
-          data-close
-          data-i18n="nav_contact"
-          >Kontakt</a
-        >
-      </nav>
-      <div class="mobile-lang">
-        <button class="lang-btn active" data-lang="de">DE</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="el">ΕΛ</button>
-      </div>
-      <div class="mobile-footer">
-        <p>Hauptstraße 6, 93149 Nittenau</p>
-        <p>09436 3009333</p>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 2L20 20M20 2L2 20"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <nav class="mobile-nav" role="navigation" aria-label="Mobilnavigation">
+          <a href="#about" class="mobile-link" data-close data-i18n="nav_about"
+            >Über uns</a
+          >
+          <a
+            href="#gallery"
+            class="mobile-link"
+            data-close
+            data-i18n="nav_gallery"
+            >Galerie</a
+          >
+          <a href="#menu" class="mobile-link" data-close data-i18n="nav_menu"
+            >Speisekarte</a
+          >
+          <a href="#hours" class="mobile-link" data-close data-i18n="nav_hours"
+            >Öffnungszeiten</a
+          >
+          <a
+            href="#reservation"
+            class="mobile-link mobile-link--cta"
+            data-close
+            data-i18n="nav_reserve"
+            >Reservieren</a
+          >
+          <a
+            href="#contact"
+            class="mobile-link"
+            data-close
+            data-i18n="nav_contact"
+            >Kontakt</a
+          >
+        </nav>
+        <div class="mobile-lang" role="group" aria-label="Sprache">
+          <button class="lang-btn active" data-lang="de" aria-pressed="true">
+            DE
+          </button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">
+            EN
+          </button>
+          <button class="lang-btn" data-lang="el" aria-pressed="false">
+            ΕΛ
+          </button>
+        </div>
+        <div class="mobile-footer">
+          <p>Hauptstraße 6, 93149 Nittenau</p>
+          <p><a href="tel:094363009333">09436 3009333</a></p>
+        </div>
       </div>
     </div>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-slides">
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-slides" aria-hidden="true">
         <div
           class="hero-slide active"
           style="background-image: url(&quot;images/welcome.jpg&quot;)"
@@ -193,7 +241,7 @@
           style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
         ></div>
       </div>
-      <div class="hero-overlay"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="hero-eyebrow" data-i18n="hero_eyebrow">
           Griechisches Restaurant seit Jahren
@@ -203,7 +251,7 @@
           <span class="line italic" data-i18n="hero_line2">Griechische</span>
           <span class="line" data-i18n="hero_line3">Küche</span>
         </h1>
-        <div class="hero-divider"></div>
+        <div class="hero-divider" aria-hidden="true"></div>
         <p class="hero-sub" data-i18n="hero_sub">
           Erleben Sie Griechenland in Nittenau — frisch, authentisch, mit Herz
           zubereitet.
@@ -220,18 +268,36 @@
           >
         </div>
       </div>
-      <div class="hero-slide-dots">
-        <button class="dot active" data-slide="0"></button>
-        <button class="dot" data-slide="1"></button>
-        <button class="dot" data-slide="2"></button>
+      <div class="hero-slide-dots" role="tablist" aria-label="Folie wählen">
+        <button
+          class="dot active"
+          data-slide="0"
+          role="tab"
+          aria-selected="true"
+          aria-label="Folie 1"
+        ></button>
+        <button
+          class="dot"
+          data-slide="1"
+          role="tab"
+          aria-selected="false"
+          aria-label="Folie 2"
+        ></button>
+        <button
+          class="dot"
+          data-slide="2"
+          role="tab"
+          aria-selected="false"
+          aria-label="Folie 3"
+        ></button>
       </div>
-      <div class="hero-scroll-indicator">
+      <div class="hero-scroll-indicator" aria-hidden="true">
         <span data-i18n="hero_scroll">Entdecken</span>
         <div class="scroll-line"></div>
       </div>
-      <div class="hero-info-bar">
+      <div class="hero-info-bar" aria-label="Schnellinfos">
         <div class="info-item">
-          <div class="info-icon-wrap">
+          <div class="info-icon-wrap" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -249,9 +315,9 @@
             ><span data-i18n="info_weekdays_time">17:00 – 22:00</span>
           </div>
         </div>
-        <div class="info-separator"></div>
+        <div class="info-separator" aria-hidden="true"></div>
         <div class="info-item">
-          <div class="info-icon-wrap">
+          <div class="info-icon-wrap" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -269,9 +335,9 @@
             ><span data-i18n="info_sunday_time">11:30 – 22:00</span>
           </div>
         </div>
-        <div class="info-separator"></div>
+        <div class="info-separator" aria-hidden="true"></div>
         <div class="info-item">
-          <div class="info-icon-wrap">
+          <div class="info-icon-wrap" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -289,9 +355,9 @@
             ><span>Hauptstraße 6, Nittenau</span>
           </div>
         </div>
-        <div class="info-separator"></div>
+        <div class="info-separator" aria-hidden="true"></div>
         <div class="info-item">
-          <div class="info-icon-wrap">
+          <div class="info-icon-wrap" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -313,40 +379,25 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="about section" id="about">
-      <!-- Background slideshow (very subtle) -->
-      <div class="about-bg-slides" id="aboutBgSlides">
-        <div
-          class="about-bg-slide active"
-          style="background-image: url(&quot;images/nikos.jpg&quot;)"
-        ></div>
-        <div
-          class="about-bg-slide"
-          style="background-image: url(&quot;images/trapezarione.jpg&quot;)"
-        ></div>
-        <div
-          class="about-bg-slide"
-          style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
-        ></div>
-        <div
-          class="about-bg-slide"
-          style="background-image: url(&quot;images/welcome.jpg&quot;)"
-        ></div>
-      </div>
-      <div class="about-deco-text">ΜΥΚΟΝΟΣ</div>
+      <div class="about-deco-text" aria-hidden="true">ΜΥΚΟΝΟΣ</div>
       <div class="container">
         <div class="about-grid">
           <div class="about-mosaic" data-reveal-left>
             <div class="mosaic-main">
-              <img src="images/welcome.jpg" alt="Unser Koch" loading="lazy" />
-              <div class="mosaic-badge">
+              <img
+                src="images/welcome.jpg"
+                alt="Unser Küchenchef bei der Arbeit"
+                loading="lazy"
+                width="600"
+                height="800"
+              />
+              <div class="mosaic-badge" aria-hidden="true">
                 <svg
                   width="22"
                   height="22"
                   viewBox="0 0 24 24"
                   fill="var(--navy)"
-                  stroke="none"
                 >
                   <path
                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
@@ -359,13 +410,21 @@
             </div>
             <div class="mosaic-side">
               <div class="mosaic-sm">
-                <img src="images/trapezari.jpg" alt="Gastraum" loading="lazy" />
+                <img
+                  src="images/trapezari.jpg"
+                  alt="Gemütlicher Gastraum"
+                  loading="lazy"
+                  width="280"
+                  height="210"
+                />
               </div>
               <div class="mosaic-sm">
                 <img
                   src="images/eingang.jpg"
-                  alt="Kaminzimmer"
+                  alt="Eingang des Restaurants"
                   loading="lazy"
+                  width="280"
+                  height="210"
                 />
               </div>
             </div>
@@ -389,7 +448,7 @@
             </p>
             <div class="about-pillars">
               <div class="pillar">
-                <div class="pillar-icon">
+                <div class="pillar-icon" aria-hidden="true">
                   <svg
                     width="22"
                     height="22"
@@ -406,7 +465,7 @@
                 </div>
               </div>
               <div class="pillar">
-                <div class="pillar-icon">
+                <div class="pillar-icon" aria-hidden="true">
                   <svg
                     width="22"
                     height="22"
@@ -426,7 +485,7 @@
                 </div>
               </div>
               <div class="pillar">
-                <div class="pillar-icon">
+                <div class="pillar-icon" aria-hidden="true">
                   <svg
                     width="22"
                     height="22"
@@ -453,23 +512,7 @@
       </div>
     </section>
 
-    <!-- FEATURES STRIP -->
-    <div class="features-strip">
-      <!-- Background slideshow -->
-      <div class="features-bg-slides" id="featuresBgSlides">
-        <div
-          class="features-bg-slide active"
-          style="background-image: url(&quot;images/trapezarifour.jpg&quot;)"
-        ></div>
-        <div
-          class="features-bg-slide"
-          style="background-image: url(&quot;images/nikos.jpg&quot;)"
-        ></div>
-        <div
-          class="features-bg-slide"
-          style="background-image: url(&quot;images/trapezarithree.jpg&quot;)"
-        ></div>
-      </div>
+    <div class="features-strip" role="region" aria-label="Highlights">
       <div class="features-inner">
         <div class="feature">
           <svg
@@ -479,13 +522,14 @@
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
+            aria-hidden="true"
           >
             <path
               d="M3 19c3 0 7-1 9-2 2 1 6 2 9 2M3 5c3 0 7 1 9 2 2-1 6-2 9-2M3 5v14M21 5v14M12 7v10"
             /></svg
           ><span data-i18n="feat1">Frische Meeresfrüchte</span>
         </div>
-        <div class="feature-dot"></div>
+        <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
           <svg
             width="18"
@@ -494,11 +538,12 @@
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
+            aria-hidden="true"
           >
             <path d="M3 11l19-9-9 19-2-8-8-2z" /></svg
           ><span data-i18n="feat2">Griechische Salate</span>
         </div>
-        <div class="feature-dot"></div>
+        <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
           <svg
             width="18"
@@ -507,11 +552,12 @@
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
+            aria-hidden="true"
           >
             <path d="M12 2v20M2 5l10 5 10-5M2 19l10-5 10 5" /></svg
           ><span data-i18n="feat3">Vom Holzkohlegrill</span>
         </div>
-        <div class="feature-dot"></div>
+        <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
           <svg
             width="18"
@@ -520,13 +566,14 @@
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
+            aria-hidden="true"
           >
             <path
               d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"
             /></svg
-          ><span data-i18n="feat4">Ouzo & Metaxa</span>
+          ><span data-i18n="feat4">Ouzo &amp; Metaxa</span>
         </div>
-        <div class="feature-dot"></div>
+        <div class="feature-dot" aria-hidden="true"></div>
         <div class="feature">
           <svg
             width="18"
@@ -535,6 +582,7 @@
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
+            aria-hidden="true"
           >
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
@@ -546,7 +594,6 @@
       </div>
     </div>
 
-    <!-- GALLERY -->
     <section class="gallery section" id="gallery">
       <div class="container">
         <div class="section-header center" data-reveal>
@@ -557,10 +604,16 @@
           <div class="gold-rule centered"></div>
         </div>
       </div>
-      <div class="gallery-masonry">
-        <div class="g-item g-item--tall" data-reveal data-num="01">
-          <img src="images/trapezarione.jpg" alt="Gastraum" loading="lazy" />
-          <div class="g-item-zoom">
+      <div class="gallery-masonry" role="list">
+        <div class="g-item g-item--tall" data-reveal role="listitem">
+          <img
+            src="images/trapezarione.jpg"
+            alt="Gemütlicher Gastraum"
+            loading="lazy"
+            width="600"
+            height="800"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -576,9 +629,15 @@
           </div>
           <div class="g-caption" data-i18n="gal1">Gemütlicher Gastraum</div>
         </div>
-        <div class="g-item" data-reveal data-num="02">
-          <img src="images/welcome.jpg" alt="Spezialitäten" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item" data-reveal role="listitem">
+          <img
+            src="images/welcome.jpg"
+            alt="Griechische Spezialitäten"
+            loading="lazy"
+            width="400"
+            height="300"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -596,9 +655,15 @@
             Griechische Spezialitäten
           </div>
         </div>
-        <div class="g-item" data-reveal data-num="03">
-          <img src="images/trapezaritwo.jpg" alt="Kaminzimmer" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item" data-reveal role="listitem">
+          <img
+            src="images/trapezaritwo.jpg"
+            alt="Kaminzimmer"
+            loading="lazy"
+            width="400"
+            height="300"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -614,9 +679,15 @@
           </div>
           <div class="g-caption" data-i18n="gal3">Kaminzimmer</div>
         </div>
-        <div class="g-item g-item--wide" data-reveal data-num="04">
-          <img src="images/trapezarifive.jpg" alt="Festtafel" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item g-item--wide" data-reveal role="listitem">
+          <img
+            src="images/trapezarifive.jpg"
+            alt="Für besondere Anlässe gedeckter Tisch"
+            loading="lazy"
+            width="800"
+            height="400"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -632,9 +703,15 @@
           </div>
           <div class="g-caption" data-i18n="gal4">Für besondere Anlässe</div>
         </div>
-        <div class="g-item g-item--tall" data-reveal data-num="05">
-          <img src="images/nikos.jpg" alt="Koch" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item g-item--tall" data-reveal role="listitem">
+          <img
+            src="images/nikos.jpg"
+            alt="Frisch zubereitete Speisen"
+            loading="lazy"
+            width="600"
+            height="800"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -650,9 +727,15 @@
           </div>
           <div class="g-caption" data-i18n="gal5">Frisch zubereitet</div>
         </div>
-        <div class="g-item" data-reveal data-num="06">
-          <img src="images/trapezarithree.jpg" alt="Ambiente" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item" data-reveal role="listitem">
+          <img
+            src="images/trapezarithree.jpg"
+            alt="Stimmungsvolles Ambiente"
+            loading="lazy"
+            width="400"
+            height="300"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -668,9 +751,15 @@
           </div>
           <div class="g-caption" data-i18n="gal6">Stimmungsvolles Ambiente</div>
         </div>
-        <div class="g-item" data-reveal data-num="07">
-          <img src="images/trapezarifour.jpg" alt="Bar" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item" data-reveal role="listitem">
+          <img
+            src="images/trapezarifour.jpg"
+            alt="Bar und Lounge"
+            loading="lazy"
+            width="400"
+            height="300"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -684,11 +773,17 @@
               <path d="M11 8v6M8 11h6" />
             </svg>
           </div>
-          <div class="g-caption" data-i18n="gal7">Bar & Lounge</div>
+          <div class="g-caption" data-i18n="gal7">Bar &amp; Lounge</div>
         </div>
-        <div class="g-item" data-reveal data-num="08">
-          <img src="images/offnung.jpg" alt="Eingang" loading="lazy" />
-          <div class="g-item-zoom">
+        <div class="g-item" data-reveal role="listitem">
+          <img
+            src="images/offnung.jpg"
+            alt="Restauranteingang"
+            loading="lazy"
+            width="400"
+            height="300"
+          />
+          <div class="g-item-overlay" aria-hidden="true">
             <svg
               width="18"
               height="18"
@@ -705,20 +800,25 @@
           <div class="g-caption" data-i18n="gal8">Öffnungszeiten</div>
         </div>
       </div>
-
-      <!-- Lightbox -->
-      <div class="lightbox" id="lightbox">
-        <button class="lb-close" id="lbClose">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <div
+        class="lightbox"
+        id="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Bildansicht"
+        aria-hidden="true"
+      >
+        <button class="lb-close" id="lbClose" aria-label="Schließen">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <path
-              d="M2 2L18 18M18 2L2 18"
+              d="M2 2L20 20M20 2L2 20"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
             />
           </svg>
         </button>
-        <button class="lb-prev" id="lbPrev">
+        <button class="lb-prev" id="lbPrev" aria-label="Vorheriges Bild">
           <svg
             width="24"
             height="24"
@@ -730,7 +830,7 @@
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
-        <button class="lb-next" id="lbNext">
+        <button class="lb-next" id="lbNext" aria-label="Nächstes Bild">
           <svg
             width="24"
             height="24"
@@ -749,9 +849,8 @@
       </div>
     </section>
 
-    <!-- MENU -->
     <section class="menu-section section" id="menu">
-      <div class="menu-bg-deco"></div>
+      <div class="menu-bg-deco" aria-hidden="true"></div>
       <div class="container">
         <div class="section-header center" data-reveal>
           <div class="section-eyebrow" data-i18n="nav_menu">Speisekarte</div>
@@ -764,41 +863,67 @@
             Zanderfilet-Pfanne
           </p>
         </div>
-        <div class="menu-tabs" role="tablist">
+        <div
+          class="menu-tabs"
+          role="tablist"
+          aria-label="Speisekarte Kategorien"
+        >
           <button
             class="mtab active"
             data-tab="vorspeise"
             role="tab"
+            aria-selected="true"
+            aria-controls="tab-vorspeise"
             data-i18n="tab_starter"
           >
-            Vorspeise & Salat
+            Vorspeise &amp; Salat
           </button>
           <button
             class="mtab"
             data-tab="grill"
             role="tab"
+            aria-selected="false"
+            aria-controls="tab-grill"
             data-i18n="tab_grill"
           >
             Vom Grill
           </button>
-          <button class="mtab" data-tab="mix" role="tab" data-i18n="tab_mix">
+          <button
+            class="mtab"
+            data-tab="mix"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-mix"
+            data-i18n="tab_mix"
+          >
             Mix-Teller
           </button>
           <button
             class="mtab"
             data-tab="ueber"
             role="tab"
+            aria-selected="false"
+            aria-controls="tab-ueber"
             data-i18n="tab_gratin"
           >
             Überbacken
           </button>
-          <button class="mtab" data-tab="fisch" role="tab" data-i18n="tab_fish">
+          <button
+            class="mtab"
+            data-tab="fisch"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-fisch"
+            data-i18n="tab_fish"
+          >
             Fisch
           </button>
           <button
             class="mtab"
             data-tab="kinder"
             role="tab"
+            aria-selected="false"
+            aria-controls="tab-kinder"
             data-i18n="tab_kids"
           >
             Kinder
@@ -807,6 +932,8 @@
             class="mtab"
             data-tab="dessert"
             role="tab"
+            aria-selected="false"
+            aria-controls="tab-dessert"
             data-i18n="tab_dessert"
           >
             Dessert
@@ -815,14 +942,15 @@
             class="mtab"
             data-tab="drinks"
             role="tab"
+            aria-selected="false"
+            aria-controls="tab-drinks"
             data-i18n="tab_drinks"
           >
             Getränke
           </button>
         </div>
         <div class="menu-panels">
-          <!-- STARTERS -->
-          <div class="mpanel active" id="tab-vorspeise">
+          <div class="mpanel active" id="tab-vorspeise" role="tabpanel">
             <div class="menu-category-title" data-i18n="cat_starters">
               Vorspeisen
             </div>
@@ -1010,8 +1138,7 @@
               </div>
             </div>
           </div>
-          <!-- GRILL -->
-          <div class="mpanel" id="tab-grill">
+          <div class="mpanel" id="tab-grill" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="tab_grill">
               Vom Grill
             </div>
@@ -1094,8 +1221,7 @@
               </div>
             </div>
           </div>
-          <!-- MIX -->
-          <div class="mpanel" id="tab-mix">
+          <div class="mpanel" id="tab-mix" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="tab_mix">
               Mix-Teller
             </div>
@@ -1169,8 +1295,7 @@
               </div>
             </div>
           </div>
-          <!-- GRATIN -->
-          <div class="mpanel" id="tab-ueber">
+          <div class="mpanel" id="tab-ueber" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="tab_gratin">
               Überbacken
             </div>
@@ -1242,8 +1367,7 @@
               </div>
             </div>
           </div>
-          <!-- FISH -->
-          <div class="mpanel" id="tab-fisch">
+          <div class="mpanel" id="tab-fisch" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_fish">
               Fischgerichte
             </div>
@@ -1276,8 +1400,7 @@
               </div>
             </div>
           </div>
-          <!-- KIDS -->
-          <div class="mpanel" id="tab-kinder">
+          <div class="mpanel" id="tab-kinder" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_kids">
               Kinder-Teller
             </div>
@@ -1347,8 +1470,7 @@
               </div>
             </div>
           </div>
-          <!-- DESSERT -->
-          <div class="mpanel" id="tab-dessert">
+          <div class="mpanel" id="tab-dessert" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_coffee">Kaffee</div>
             <div class="menu-list">
               <div class="mitem">
@@ -1420,8 +1542,7 @@
               </div>
             </div>
           </div>
-          <!-- DRINKS -->
-          <div class="mpanel" id="tab-drinks">
+          <div class="mpanel" id="tab-drinks" role="tabpanel" hidden>
             <div class="menu-category-title" data-i18n="cat_beer">Bier</div>
             <div class="menu-list">
               <div class="mitem">
@@ -1525,7 +1646,7 @@
               style="margin-top: 2rem"
               data-i18n="cat_spirits"
             >
-              Aperitif & Spirituosen
+              Aperitif &amp; Spirituosen
             </div>
             <div class="menu-list">
               <div class="mitem">
@@ -1602,29 +1723,13 @@
       </div>
     </section>
 
-    <!-- HOURS -->
     <section class="hours-section section" id="hours">
-      <!-- Food photo slideshow background -->
-      <div class="hours-food-slides" id="hoursFoodSlides">
-        <div
-          class="hours-food-slide active"
-          style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
-        ></div>
-        <div
-          class="hours-food-slide"
-          style="background-image: url(&quot;images/welcome.jpg&quot;)"
-        ></div>
-        <div
-          class="hours-food-slide"
-          style="background-image: url(&quot;images/nikos.jpg&quot;)"
-        ></div>
-        <div
-          class="hours-food-slide"
-          style="background-image: url(&quot;images/trapezarione.jpg&quot;)"
-        ></div>
-      </div>
-      <div class="hours-parallax-img"></div>
-      <div class="hours-overlay"></div>
+      <div
+        class="hours-parallax-img"
+        aria-hidden="true"
+        style="background-image: url(&quot;images/trapezarifive.jpg&quot;)"
+      ></div>
+      <div class="hours-overlay" aria-hidden="true"></div>
       <div class="container">
         <div class="hours-inner" data-reveal>
           <div class="section-eyebrow light" data-i18n="nav_hours">
@@ -1634,38 +1739,44 @@
             Wann wir<br /><em>für Sie da sind</em>
           </h2>
           <div class="gold-rule centered"></div>
-          <div class="hours-table">
-            <div class="hrow">
-              <span class="hday" data-i18n="day_mon">Montag</span
-              ><span class="htime">17:00 – 22:00</span>
+          <div class="hours-table" role="table" aria-label="Öffnungszeiten">
+            <div class="hrow" role="row">
+              <span class="hday" role="cell" data-i18n="day_mon">Montag</span
+              ><span class="htime" role="cell">17:00 – 22:00</span>
             </div>
-            <div class="hrow closed">
-              <span class="hday" data-i18n="day_tue">Dienstag</span
-              ><span class="htime hclosed" data-i18n="closed">Ruhetag</span>
+            <div class="hrow closed" role="row">
+              <span class="hday" role="cell" data-i18n="day_tue">Dienstag</span
+              ><span class="htime hclosed" role="cell" data-i18n="closed"
+                >Ruhetag</span
+              >
             </div>
-            <div class="hrow">
-              <span class="hday" data-i18n="day_wed">Mittwoch</span
-              ><span class="htime">17:00 – 22:00</span>
+            <div class="hrow" role="row">
+              <span class="hday" role="cell" data-i18n="day_wed">Mittwoch</span
+              ><span class="htime" role="cell">17:00 – 22:00</span>
             </div>
-            <div class="hrow">
-              <span class="hday" data-i18n="day_thu">Donnerstag</span
-              ><span class="htime">17:00 – 22:00</span>
+            <div class="hrow" role="row">
+              <span class="hday" role="cell" data-i18n="day_thu"
+                >Donnerstag</span
+              ><span class="htime" role="cell">17:00 – 22:00</span>
             </div>
-            <div class="hrow">
-              <span class="hday" data-i18n="day_fri">Freitag</span
-              ><span class="htime">17:00 – 22:00</span>
+            <div class="hrow" role="row">
+              <span class="hday" role="cell" data-i18n="day_fri">Freitag</span
+              ><span class="htime" role="cell">17:00 – 22:00</span>
             </div>
-            <div class="hrow">
-              <span class="hday" data-i18n="day_sat">Samstag</span
-              ><span class="htime">17:00 – 22:00</span>
+            <div class="hrow" role="row">
+              <span class="hday" role="cell" data-i18n="day_sat">Samstag</span
+              ><span class="htime" role="cell">17:00 – 22:00</span>
             </div>
-            <div class="hrow hrow--special">
-              <span class="hday" data-i18n="day_sun">Sonntag & Feiertag</span
-              ><span class="htime">11:30–14:00 &amp; 17:00–22:00</span>
+            <div class="hrow hrow--special" role="row">
+              <span class="hday" role="cell" data-i18n="day_sun"
+                >Sonntag &amp; Feiertag</span
+              ><span class="htime" role="cell"
+                >11:30–14:00 &amp; 17:00–22:00</span
+              >
             </div>
           </div>
           <p class="hours-note" data-i18n="hours_note">
-            Jeden Sonntag & Feiertag gleiche Öffnungszeiten
+            Jeden Sonntag &amp; Feiertag gleiche Öffnungszeiten
           </p>
           <a
             href="tel:094363009333"
@@ -1677,23 +1788,7 @@
       </div>
     </section>
 
-    <!-- RESERVATION -->
     <section class="reservation section" id="reservation">
-      <!-- Subtle bg slideshow -->
-      <div class="res-bg-slides" id="resBgSlides">
-        <div
-          class="res-bg-slide active"
-          style="background-image: url(&quot;images/trapezarithree.jpg&quot;)"
-        ></div>
-        <div
-          class="res-bg-slide"
-          style="background-image: url(&quot;images/trapezarifour.jpg&quot;)"
-        ></div>
-        <div
-          class="res-bg-slide"
-          style="background-image: url(&quot;images/trapezaritwo.jpg&quot;)"
-        ></div>
-      </div>
       <div class="container">
         <div class="reservation-grid">
           <div class="res-left" data-reveal-left>
@@ -1710,7 +1805,7 @@
             </p>
             <div class="res-contact">
               <a href="tel:094363009333" class="res-contact-item">
-                <span class="res-icon"
+                <span class="res-icon" aria-hidden="true"
                   ><svg
                     width="20"
                     height="20"
@@ -1732,7 +1827,7 @@
                 href="mailto:mykonosrestaurant73@gmail.com"
                 class="res-contact-item"
               >
-                <span class="res-icon"
+                <span class="res-icon" aria-hidden="true"
                   ><svg
                     width="20"
                     height="20"
@@ -1754,40 +1849,47 @@
             </div>
             <img
               src="images/trapezarithree.jpg"
-              alt="Gastraum"
+              alt="Unser Gastraum"
               class="res-img"
               loading="lazy"
+              width="600"
+              height="338"
             />
           </div>
           <div class="res-right" data-reveal-right>
             <form class="res-form" id="resForm" novalidate>
               <div class="res-form-grid">
                 <div class="fgroup">
-                  <label data-i18n="form_name">Ihr Name *</label
-                  ><input
+                  <label for="resName" data-i18n="form_name">Ihr Name *</label>
+                  <input
                     type="text"
+                    id="resName"
                     name="name"
                     placeholder="Max Mustermann"
                     required
+                    autocomplete="name"
                   />
                 </div>
                 <div class="fgroup">
-                  <label data-i18n="form_phone">Telefon *</label
-                  ><input
+                  <label for="resPhone" data-i18n="form_phone">Telefon *</label>
+                  <input
                     type="tel"
+                    id="resPhone"
                     name="phone"
                     placeholder="+49 …"
                     required
+                    autocomplete="tel"
                   />
                 </div>
                 <div class="fgroup">
-                  <label data-i18n="form_date">Datum *</label
-                  ><input type="date" name="date" id="resDate" required />
+                  <label for="resDate" data-i18n="form_date">Datum *</label>
+                  <input type="date" name="date" id="resDate" required />
                 </div>
                 <div class="fgroup">
-                  <label data-i18n="form_time">Uhrzeit *</label
-                  ><input
+                  <label for="resTime" data-i18n="form_time">Uhrzeit *</label>
+                  <input
                     type="time"
+                    id="resTime"
                     name="time"
                     min="11:30"
                     max="21:30"
@@ -1795,8 +1897,10 @@
                   />
                 </div>
                 <div class="fgroup">
-                  <label data-i18n="form_guests">Personen</label
-                  ><select name="guests">
+                  <label for="resGuests" data-i18n="form_guests"
+                    >Personen</label
+                  >
+                  <select id="resGuests" name="guests">
                     <option data-i18n="guests_1">1 Person</option>
                     <option selected data-i18n="guests_2">2 Personen</option>
                     <option data-i18n="guests_3">3 Personen</option>
@@ -1807,16 +1911,21 @@
                   </select>
                 </div>
                 <div class="fgroup">
-                  <label>E-Mail</label
-                  ><input
+                  <label for="resEmail">E-Mail</label>
+                  <input
                     type="email"
+                    id="resEmail"
                     name="email"
                     placeholder="ihre@email.de"
+                    autocomplete="email"
                   />
                 </div>
                 <div class="fgroup fgroup--full">
-                  <label data-i18n="form_notes">Anmerkungen</label
-                  ><textarea
+                  <label for="resNotes" data-i18n="form_notes"
+                    >Anmerkungen</label
+                  >
+                  <textarea
+                    id="resNotes"
                     name="notes"
                     rows="4"
                     data-i18n-placeholder="form_notes_placeholder"
@@ -1834,8 +1943,8 @@
                 Wir bestätigen Ihre Reservierung telefonisch oder per E-Mail.
               </p>
             </form>
-            <div class="res-success" id="resSuccess">
-              <div class="res-success-icon">
+            <div class="res-success" id="resSuccess" hidden>
+              <div class="res-success-icon" aria-hidden="true">
                 <svg
                   width="48"
                   height="48"
@@ -1858,12 +1967,11 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact section" id="contact">
       <div class="container">
         <div class="section-header center" data-reveal>
           <div class="section-eyebrow" data-i18n="contact_eyebrow">
-            Kontakt & Anfahrt
+            Kontakt &amp; Anfahrt
           </div>
           <h2 class="section-title" data-i18n="contact_title">
             So finden Sie<br /><em>uns</em>
@@ -1873,11 +1981,12 @@
         <div class="contact-grid">
           <div class="contact-cards" data-reveal-left>
             <a
-              href="https://maps.google.com/?q=Hauptstrasse+6+Nittenau"
+              href="https://maps.google.com/?q=Hauptstrasse+6+93149+Nittenau"
               target="_blank"
+              rel="noopener noreferrer"
               class="ccard"
             >
-              <div class="ccard-icon">
+              <div class="ccard-icon" aria-hidden="true">
                 <svg
                   width="22"
                   height="22"
@@ -1896,7 +2005,7 @@
               <div class="ccard-value">Hauptstraße 6<br />93149 Nittenau</div>
             </a>
             <a href="tel:094363009333" class="ccard">
-              <div class="ccard-icon">
+              <div class="ccard-icon" aria-hidden="true">
                 <svg
                   width="22"
                   height="22"
@@ -1916,7 +2025,7 @@
               <div class="ccard-value">09436 3009333</div>
             </a>
             <a href="mailto:mykonosrestaurant73@gmail.com" class="ccard">
-              <div class="ccard-icon">
+              <div class="ccard-icon" aria-hidden="true">
                 <svg
                   width="22"
                   height="22"
@@ -1937,9 +2046,10 @@
             <a
               href="https://www.facebook.com/profile.php?id=61575455390281"
               target="_blank"
+              rel="noopener noreferrer"
               class="ccard"
             >
-              <div class="ccard-icon">
+              <div class="ccard-icon" aria-hidden="true">
                 <svg
                   width="22"
                   height="22"
@@ -1959,18 +2069,19 @@
           </div>
           <div class="contact-map" data-reveal-right>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2614.0!2d12.265!3d49.1988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a01b3f2c9ef:0x0!2zNDnCsDExJzU2LjkiTiAxMsKwMTUnNTQuMCJF!5e0!3m2!1sde!2sde!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2610.9876543210!2d12.3334!3d49.1988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477267b2e3456789%3A0xabc123def456!2sHauptstra%C3%9Fe+6%2C+93149+Nittenau%2C+Germany!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
               allowfullscreen
               loading="lazy"
-              title="Mykonos Restaurant "
-            ></iframe>
+              title="Restaurant Mykonos Nittenau – Hauptstraße 6, 93149 Nittenau"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo">Mykonos</div>
@@ -1978,7 +2089,7 @@
             Griechisches Restaurant · Nittenau
           </div>
         </div>
-        <nav class="footer-nav">
+        <nav class="footer-nav" aria-label="Footer Navigation">
           <a href="#about" data-i18n="nav_about">Über uns</a>
           <a href="#gallery" data-i18n="nav_gallery">Galerie</a>
           <a href="#menu" data-i18n="nav_menu">Speisekarte</a>
@@ -2004,15 +2115,15 @@
         </p>
         <div class="footer-legal-links">
           <a href="impressum.html" data-i18n="nav_impressum">Impressum</a>
-          <span>·</span>
+          <span aria-hidden="true">·</span>
           <a href="datenschutz.html" data-i18n="nav_datenschutz">Datenschutz</a>
-          <span>·</span>
+          <span aria-hidden="true">·</span>
           <span data-i18n="footer_closed">Dienstag Ruhetag</span>
         </div>
       </div>
     </footer>
 
-    <button class="back-top" id="backTop" aria-label="Nach oben">
+    <button class="back-top" id="backTop" aria-label="Nach oben scrollen">
       <svg
         width="18"
         height="18"
@@ -2020,6 +2131,7 @@
         fill="none"
         stroke="currentColor"
         stroke-width="2"
+        aria-hidden="true"
       >
         <polyline points="18 15 12 9 6 15" />
       </svg>

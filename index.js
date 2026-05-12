@@ -1,8 +1,4 @@
 "use strict";
-
-/* ══════════════════════════════════
-   TRANSLATIONS
-══════════════════════════════════ */
 const translations = {
   de: {
     brand_sub: "Restaurant · Nittenau",
@@ -168,7 +164,6 @@ const translations = {
     footer_copy: "© 2025 Restaurant Mykonos Nittenau — Alle Rechte vorbehalten",
     footer_closed: "Dienstag Ruhetag",
   },
-
   en: {
     brand_sub: "Restaurant · Nittenau",
     nav_about: "About Us",
@@ -331,7 +326,6 @@ const translations = {
     footer_copy: "© 2025 Restaurant Mykonos Nittenau — All rights reserved",
     footer_closed: "Tuesday closed",
   },
-
   el: {
     brand_sub: "Εστιατόριο · Nittenau",
     nav_about: "Σχετικά",
@@ -503,25 +497,20 @@ function applyTranslations(lang) {
   if (!t) return;
   currentLang = lang;
   document.documentElement.lang = lang;
-
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (!t[key]) return;
-    const value = t[key];
-    // For h2/h1 titles that have inline HTML
+    const val = t[key];
     if (el.tagName === "H2" || el.tagName === "H1") {
-      el.innerHTML = value.replace(/\n/g, "<br/>");
+      el.innerHTML = val.replace(/\n/g, "<br/>");
     } else {
-      el.textContent = value;
+      el.textContent = val;
     }
   });
-
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (t[key]) el.placeholder = t[key];
   });
-
-  // Update select options
   const select = document.querySelector('select[name="guests"]');
   if (select) {
     const opts = select.querySelectorAll("option");
@@ -538,60 +527,67 @@ function applyTranslations(lang) {
       if (t[keys[i]]) opt.textContent = t[keys[i]];
     });
   }
-
-  // Update lang buttons
   document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", String(active));
   });
-
-  localStorage.setItem("mykonos-lang", lang);
+  try {
+    localStorage.setItem("mykonos-lang", lang);
+  } catch (e) {}
 }
 
-/* ══════════════════════════════════
-   1. LOADER
-══════════════════════════════════ */
 (function initLoader() {
   const loader = document.getElementById("loader");
   if (!loader) return;
   document.body.style.overflow = "hidden";
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      loader.classList.add("done");
-      document.body.style.overflow = "";
-    }, 1800);
-  });
-})();
-
-/* ══════════════════════════════════
-   2. LANGUAGE SWITCHER
-══════════════════════════════════ */
-(function initLanguage() {
-  const saved = localStorage.getItem("mykonos-lang") || "de";
-  applyTranslations(saved);
-
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      applyTranslations(btn.dataset.lang);
+  const done = () => {
+    loader.classList.add("done");
+    document.body.style.overflow = "";
+  };
+  if (document.readyState === "complete") {
+    setTimeout(done, 1800);
+  } else {
+    window.addEventListener("load", () => setTimeout(done, 1800), {
+      once: true,
     });
+  }
+})();
+
+(function initLanguage() {
+  let saved = "de";
+  try {
+    saved = localStorage.getItem("mykonos-lang") || "de";
+  } catch (e) {}
+  applyTranslations(saved);
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".lang-btn");
+    if (btn && btn.dataset.lang) applyTranslations(btn.dataset.lang);
   });
 })();
 
-/* ══════════════════════════════════
-   3. NAVBAR
-══════════════════════════════════ */
 (function initNavbar() {
   const navbar = document.getElementById("navbar");
   if (!navbar) return;
-
-  function updateNav() {
-    navbar.classList.toggle("scrolled", window.scrollY > 80);
-  }
-  window.addEventListener("scroll", updateNav, { passive: true });
-  updateNav();
-
-  const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
-  const observer = new IntersectionObserver(
+  let ticking = false;
+  function updateNav() {
+    navbar.classList.toggle("scrolled", window.scrollY > 60);
+    ticking = false;
+  }
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+  updateNav();
+  const sections = document.querySelectorAll("section[id]");
+  const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -606,103 +602,104 @@ function applyTranslations(lang) {
     },
     { threshold: 0.35 },
   );
-  sections.forEach((s) => observer.observe(s));
+  sections.forEach((s) => io.observe(s));
 })();
 
-/* ══════════════════════════════════
-   4. MOBILE MENU
-══════════════════════════════════ */
 (function initMobileMenu() {
   const burger = document.getElementById("burger");
   const overlay = document.getElementById("mobileOverlay");
   const closeBtn = document.getElementById("mobileClose");
   if (!burger || !overlay) return;
-
-  function open() {
+  const body = document.body;
+  function openMenu() {
     overlay.classList.add("open");
+    overlay.setAttribute("aria-hidden", "false");
     burger.classList.add("open");
-    document.body.style.overflow = "hidden";
+    burger.setAttribute("aria-expanded", "true");
+    body.style.overflow = "hidden";
+    setTimeout(() => closeBtn && closeBtn.focus(), 100);
   }
-  function close() {
+  function closeMenu() {
     overlay.classList.remove("open");
+    overlay.setAttribute("aria-hidden", "true");
     burger.classList.remove("open");
-    document.body.style.overflow = "";
+    burger.setAttribute("aria-expanded", "false");
+    body.style.overflow = "";
+    burger.focus();
   }
-
-  burger.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
+  burger.addEventListener("click", openMenu);
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
   overlay
     .querySelectorAll("[data-close]")
-    .forEach((link) => link.addEventListener("click", close));
+    .forEach((link) => link.addEventListener("click", closeMenu));
+  overlay
+    .querySelector(".mobile-overlay-bg")
+    ?.addEventListener("click", closeMenu);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
+    if (e.key === "Escape" && overlay.classList.contains("open")) closeMenu();
   });
 })();
 
-/* ══════════════════════════════════
-   5. HERO SLIDESHOW
-══════════════════════════════════ */
 (function initHeroSlides() {
   const slides = document.querySelectorAll(".hero-slide");
   const dots = document.querySelectorAll(".dot");
   if (!slides.length) return;
-
   let current = 0;
-  let timer;
-
+  let timer = null;
   function goTo(index) {
     slides[current].classList.remove("active");
-    dots[current]?.classList.remove("active");
+    if (dots[current]) {
+      dots[current].classList.remove("active");
+      dots[current].setAttribute("aria-selected", "false");
+    }
     current = (index + slides.length) % slides.length;
     slides[current].classList.add("active");
-    dots[current]?.classList.add("active");
+    if (dots[current]) {
+      dots[current].classList.add("active");
+      dots[current].setAttribute("aria-selected", "true");
+    }
   }
-
-  function startTimer() {
+  function start() {
     timer = setInterval(() => goTo(current + 1), 5500);
   }
-  function resetTimer() {
+  function reset() {
     clearInterval(timer);
-    startTimer();
+    start();
   }
-
   dots.forEach((dot, i) =>
     dot.addEventListener("click", () => {
       goTo(i);
-      resetTimer();
+      reset();
     }),
   );
-  startTimer();
+  start();
 })();
 
-/* ══════════════════════════════════
-   6. SCROLL REVEAL
-══════════════════════════════════ */
 (function initScrollReveal() {
   const targets = document.querySelectorAll(
-    "[data-reveal], [data-reveal-left], [data-reveal-right]",
+    "[data-reveal],[data-reveal-left],[data-reveal-right]",
   );
-  const observer = new IntersectionObserver(
+  if (!targets.length) return;
+  const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const siblings = entry.target.parentElement.querySelectorAll(
-            "[data-reveal], [data-reveal-left], [data-reveal-right]",
-          );
-          const idx = Array.from(siblings).indexOf(entry.target);
+          const siblings = [
+            ...entry.target.parentElement.querySelectorAll(
+              "[data-reveal],[data-reveal-left],[data-reveal-right]",
+            ),
+          ];
+          const idx = siblings.indexOf(entry.target);
           setTimeout(() => entry.target.classList.add("visible"), idx * 70);
-          observer.unobserve(entry.target);
+          io.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
   );
-  targets.forEach((t) => observer.observe(t));
+  targets.forEach((t) => io.observe(t));
 })();
 
-/* ══════════════════════════════════
-   7. GALLERY LIGHTBOX
-══════════════════════════════════ */
 (function initLightbox() {
   const items = document.querySelectorAll(".g-item");
   const lb = document.getElementById("lightbox");
@@ -712,29 +709,37 @@ function applyTranslations(lang) {
   const lbPrev = document.getElementById("lbPrev");
   const lbNext = document.getElementById("lbNext");
   if (!lb || !items.length) return;
-
-  let images = [];
-  let current = 0;
+  const images = [];
   items.forEach((item) => {
     const img = item.querySelector("img");
     const cap = item.querySelector(".g-caption");
-    images.push({ src: img?.src, alt: img?.alt, cap: cap?.textContent });
+    images.push({
+      src: img?.src,
+      alt: img?.alt || "",
+      cap: cap?.textContent || "",
+    });
   });
-
-  function open(index) {
-    current = index;
-    show();
-    lb.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
-  function close() {
-    lb.classList.remove("open");
-    document.body.style.overflow = "";
-  }
+  let current = 0;
+  let opener = null;
   function show() {
     lbImg.src = images[current].src;
     lbImg.alt = images[current].alt;
     lbCap.textContent = images[current].cap;
+  }
+  function open(index, el) {
+    current = index;
+    opener = el;
+    show();
+    lb.classList.add("open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => lbClose?.focus(), 50);
+  }
+  function close() {
+    lb.classList.remove("open");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    opener?.focus();
   }
   function prev() {
     current = (current - 1 + images.length) % images.length;
@@ -744,42 +749,50 @@ function applyTranslations(lang) {
     current = (current + 1) % images.length;
     show();
   }
-
-  items.forEach((item, i) => item.addEventListener("click", () => open(i)));
-  lbClose.addEventListener("click", close);
-  lbPrev.addEventListener("click", prev);
-  lbNext.addEventListener("click", next);
+  items.forEach((item, i) =>
+    item.addEventListener("click", () => open(i, item)),
+  );
+  lbClose?.addEventListener("click", close);
+  lbPrev?.addEventListener("click", prev);
+  lbNext?.addEventListener("click", next);
   lb.addEventListener("click", (e) => {
     if (e.target === lb) close();
   });
   document.addEventListener("keydown", (e) => {
     if (!lb.classList.contains("open")) return;
     if (e.key === "ArrowLeft") prev();
-    if (e.key === "ArrowRight") next();
-    if (e.key === "Escape") close();
+    else if (e.key === "ArrowRight") next();
+    else if (e.key === "Escape") close();
   });
 })();
 
-/* ══════════════════════════════════
-   8. MENU TABS
-══════════════════════════════════ */
 (function initMenuTabs() {
   const tabs = document.querySelectorAll(".mtab");
   const panels = document.querySelectorAll(".mpanel");
+  if (!tabs.length) return;
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      tabs.forEach((t) => t.classList.remove("active"));
-      panels.forEach((p) => p.classList.remove("active"));
+      tabs.forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      panels.forEach((p) => {
+        p.classList.remove("active");
+        p.hidden = true;
+      });
       tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
       const panel = document.getElementById("tab-" + tab.dataset.tab);
-      if (panel) panel.classList.add("active");
+      if (panel) {
+        panel.classList.add("active");
+        panel.hidden = false;
+      }
     });
   });
+  const active = document.querySelector(".mpanel.active");
+  if (active) active.hidden = false;
 })();
 
-/* ══════════════════════════════════
-   9. RESERVATION FORM
-══════════════════════════════════ */
 (function initReservation() {
   const form = document.getElementById("resForm");
   const success = document.getElementById("resSuccess");
@@ -790,40 +803,51 @@ function applyTranslations(lang) {
     dateInput.value = today;
   }
   if (!form) return;
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const inputs = form.querySelectorAll("[required]");
+    const required = form.querySelectorAll("[required]");
     let valid = true;
-    inputs.forEach((input) => {
+    required.forEach((input) => {
       if (!input.value.trim()) {
         valid = false;
-        input.style.borderColor = "#c0392b";
-        setTimeout(() => (input.style.borderColor = ""), 2500);
+        input.classList.add("error");
+        input.addEventListener("input", () => input.classList.remove("error"), {
+          once: true,
+        });
       }
     });
-    if (!valid) return;
-
+    if (!valid) {
+      const first = form.querySelector(".error");
+      first?.focus();
+      return;
+    }
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.style.opacity = "0.6";
     setTimeout(() => {
       form.style.display = "none";
-      success.style.display = "block";
-    }, 1000);
+      if (success) {
+        success.removeAttribute("hidden");
+        success.style.display = "block";
+      }
+    }, 900);
   });
 })();
 
-/* ══════════════════════════════════
-   10. BACK TO TOP
-══════════════════════════════════ */
 (function initBackToTop() {
   const btn = document.getElementById("backTop");
   if (!btn) return;
+  let ticking = false;
   window.addEventListener(
     "scroll",
     () => {
-      btn.classList.toggle("visible", window.scrollY > 600);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          btn.classList.toggle("visible", window.scrollY > 600);
+          ticking = false;
+        });
+        ticking = true;
+      }
     },
     { passive: true },
   );
@@ -832,57 +856,85 @@ function applyTranslations(lang) {
   );
 })();
 
-/* ══════════════════════════════════
-   11. SMOOTH SCROLL
-══════════════════════════════════ */
 (function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
-      const target = document.querySelector(anchor.getAttribute("href"));
-      if (!target) return;
-      e.preventDefault();
-      const navH = document.getElementById("navbar")?.offsetHeight || 70;
-      window.scrollTo({
-        top: target.getBoundingClientRect().top + window.scrollY - navH,
-        behavior: "smooth",
-      });
-    });
+  document.addEventListener("click", (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const href = anchor.getAttribute("href");
+    if (href === "#") return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    const navH = document.getElementById("navbar")?.offsetHeight || 70;
+    const top = target.getBoundingClientRect().top + window.scrollY - navH;
+    window.scrollTo({ top, behavior: "smooth" });
   });
 })();
 
-/* ══════════════════════════════════
-   12. LAZY IMAGE FADE
-══════════════════════════════════ */
-(function initLazyImages() {
-  document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-    img.style.opacity = "0";
-    img.style.transition = "opacity 0.5s ease";
-    if (img.complete) {
-      img.style.opacity = "1";
-    } else {
-      img.addEventListener("load", () => {
-        img.style.opacity = "1";
-      });
+(function initParallax() {
+  const img = document.querySelector(".hours-parallax-img");
+  if (!img) return;
+  let ticking = false;
+  function update() {
+    const rect = img.parentElement.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.bottom < 0 || rect.top > vh) {
+      ticking = false;
+      return;
     }
-  });
-})();
-
-/* ══════════════════════════════════
-   13. SCROLL HIDE HERO INDICATOR
-══════════════════════════════════ */
-(function initHeroScrollFade() {
-  const indicator = document.querySelector(".hero-scroll-indicator");
-  if (!indicator) return;
+    const progress = (vh - rect.top) / (vh + rect.height);
+    const offset = (progress - 0.5) * 60;
+    img.style.transform = `translateY(${offset}px)`;
+    ticking = false;
+  }
   window.addEventListener(
     "scroll",
     () => {
-      indicator.style.opacity = Math.max(0, 1 - window.scrollY / 180);
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
     },
     { passive: true },
   );
 })();
 
-console.log(
-  "%cMykonos Restaurant Nittenau",
-  "font-size:14px;color:#c9a55a;font-weight:bold;",
-);
+(function initLazyImages() {
+  if (!("IntersectionObserver" in window)) return;
+  document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+    img.style.opacity = "0";
+    img.style.transition = "opacity .5s ease";
+    if (img.complete && img.naturalWidth) {
+      img.style.opacity = "1";
+    } else {
+      img.addEventListener(
+        "load",
+        () => {
+          img.style.opacity = "1";
+        },
+        { once: true },
+      );
+    }
+  });
+})();
+
+(function initHeroScrollFade() {
+  const indicator = document.querySelector(".hero-scroll-indicator");
+  if (!indicator) return;
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          indicator.style.opacity = String(
+            Math.max(0, 1 - window.scrollY / 200),
+          );
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+})();
